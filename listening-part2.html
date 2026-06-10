@@ -76,35 +76,26 @@ h1 {
     font-size: 16px;
 }
 
-.question-number {
-    font-weight: bold;
-    color: #1f3a5f;
-    display: inline-block;
-    min-width: 35px;
-}
-
 .option-item {
-    margin: 8px 0 8px 35px;
+    margin: 12px 0;
+    padding: 8px 12px;
     cursor: pointer;
 }
 
 .drag-container {
-    display: flex;
-    gap: 30px;
+    display: block;
     margin-top: 20px;
-    flex-wrap: wrap;
 }
 
 .drag-box {
-    flex: 1;
-    min-width: 300px;
+    margin-bottom: 30px;
 }
 
 .draggable-item {
     background: #e8f0fe;
     border: 1px solid #b0c4de;
-    padding: 10px;
-    margin: 8px 0;
+    padding: 12px;
+    margin: 10px 0;
     border-radius: 4px;
     cursor: grab;
     user-select: none;
@@ -113,13 +104,13 @@ h1 {
 .drop-target {
     background: #f9f9f9;
     border: 1px dashed #999;
-    padding: 10px;
-    min-height: 42px;
-    display: inline-block;
-    min-width: 50px;
-    text-align: center;
-    font-weight: bold;
+    padding: 12px;
+    min-height: 45px;
+    display: block;
+    margin: 10px 0;
     text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
 }
 
 .drop-target.highlight {
@@ -183,7 +174,7 @@ h1 {
 
     <h1>Questions 11–20</h1>
 
-    <!-- Questions 11-12 -->
+    <!-- Questions 11 and 12 -->
     <div class="question-block">
         <p><strong>Questions 11 and 12</strong><br>
         Choose <strong>TWO</strong> letters, A–E.</p>
@@ -207,7 +198,7 @@ h1 {
         </div>
     </div>
 
-    <!-- Questions 13-14 -->
+    <!-- Questions 13 and 14 -->
     <div class="question-block">
         <p><strong>Questions 13 and 14</strong><br>
         Choose <strong>TWO</strong> letters, A–E.</p>
@@ -231,12 +222,12 @@ h1 {
         </div>
     </div>
 
-    <!-- Questions 15-20 Drag & Drop -->
+    <!-- Questions 15–20 -->
     <div class="question-block">
         <p><strong>Questions 15–20</strong><br>
         What information does Megan give about each of the following job opportunities?<br>
         Choose <strong>SIX</strong> answers from the box and write the correct letter, A–H, next to Questions 15–20.<br>
-        <em>Click and hold an item, then drag it to the correct number.</em></p>
+        <em>Drag an item and drop it onto the space below each job title.</em></p>
 
         <div class="drag-container">
             <div class="drag-box">
@@ -253,12 +244,24 @@ h1 {
 
             <div class="drag-box">
                 <p><strong>Job opportunities</strong></p>
-                <p><span class="question-number">15</span> Fresh food commercial manager: <span class="drop-target" data-q="15"></span></p>
-                <p><span class="question-number">16</span> Agronomist: <span class="drop-target" data-q="16"></span></p>
-                <p><span class="question-number">17</span> Fresh produce buyer: <span class="drop-target" data-q="17"></span></p>
-                <p><span class="question-number">18</span> Garden centre sales manager: <span class="drop-target" data-q="18"></span></p>
-                <p><span class="question-number">19</span> Tree technician: <span class="drop-target" data-q="19"></span></p>
-                <p><span class="question-number">20</span> Farm worker: <span class="drop-target" data-q="20"></span></p>
+
+                <p><strong>15 Fresh food commercial manager</strong></p>
+                <div class="drop-target" data-q="15"></div>
+
+                <p><strong>16 Agronomist</strong></p>
+                <div class="drop-target" data-q="16"></div>
+
+                <p><strong>17 Fresh produce buyer</strong></p>
+                <div class="drop-target" data-q="17"></div>
+
+                <p><strong>18 Garden centre sales manager</strong></p>
+                <div class="drop-target" data-q="18"></div>
+
+                <p><strong>19 Tree technician</strong></p>
+                <div class="drop-target" data-q="19"></div>
+
+                <p><strong>20 Farm worker</strong></p>
+                <div class="drop-target" data-q="20"></div>
             </div>
         </div>
     </div>
