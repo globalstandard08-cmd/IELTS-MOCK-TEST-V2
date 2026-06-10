@@ -10,46 +10,46 @@ body {
     font-family: Arial, sans-serif;
     background: #f4f6f9;
     margin: 0;
-    padding: 25px;
+    padding: 20px;
 }
 
 .container {
-    max-width: 820px;
+    max-width: 780px;
     margin: auto;
     background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .logo {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .logo img {
-    height: 90px;
+    height: 80px;
     object-fit: contain;
 }
 
 .section-header {
     background-color: #1f3a5f;
     color: white;
-    padding: 10px 18px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-bottom: 18px;
+    font-size: 15px;
     font-weight: bold;
 }
 
 .audio-player {
     background-color: #f8fbfe;
     border: 1px solid #d4e0ed;
-    border-radius: 6px;
-    padding: 12px;
-    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 18px;
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 audio {
@@ -59,71 +59,73 @@ audio {
 h1 {
     color: #1f3a5f;
     text-align: center;
-    margin-bottom: 18px;
-    font-size: 19px;
+    margin-bottom: 15px;
+    font-size: 18px;
 }
 
 .instructions {
     background-color: #f8fbfe;
-    border-left: 4px solid #1f3a5f;
-    padding: 12px;
-    margin-bottom: 20px;
-    line-height: 1.6;
-    font-size: 14px;
+    border-left: 3px solid #1f3a5f;
+    padding: 10px;
+    margin-bottom: 18px;
+    line-height: 1.5;
+    font-size: 13px;
 }
 
 .question-block {
-    margin-bottom: 22px;
-    line-height: 1.6;
-    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 13px;
 }
 
 .option-item {
-    margin: 6px 0;
-    padding: 4px 8px;
+    margin: 5px 0;
+    padding: 3px 6px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 13px;
 }
 
+/* --- Q15-20: FULL WIDTH, NO SIDE-BY-SIDE --- */
 .drag-container {
-    display: flex;
-    gap: 25px;
-    margin-top: 15px;
-    flex-wrap: wrap;
+    display: block;
+    margin-top: 12px;
 }
 
 .drag-box {
-    flex: 1;
-    min-width: 280px;
+    width: 100%;
+    margin-bottom: 18px;
 }
 
 .drag-box p {
-    font-size: 14px;
-    margin: 8px 0;
+    font-size: 13px;
+    margin: 6px 0;
 }
 
 .draggable-item {
     background: #e8f0fe;
     border: 1px solid #b0c4de;
-    padding: 8px;
-    margin: 6px 0;
-    border-radius: 4px;
+    padding: 7px;
+    margin: 5px 0;
+    border-radius: 3px;
     cursor: grab;
     user-select: none;
-    font-size: 13px;
+    font-size: 12px;
+    display: block;
 }
 
 .drop-target {
     background: #f9f9f9;
     border: 1px dashed #999;
-    padding: 8px;
-    min-height: 35px;
+    padding: 7px;
+    min-height: 32px;
     display: block;
-    margin: 4px 0 12px 0;
+    margin: 3px 0 10px 0;
     text-transform: uppercase;
     font-weight: bold;
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .drop-target.highlight {
@@ -132,28 +134,28 @@ h1 {
 }
 
 .save-note {
-    margin-top: 12px;
+    margin-top: 10px;
     color: #28a745;
-    font-size: 13px;
+    font-size: 12px;
     text-align: center;
     display: none;
 }
 
 .nav-buttons {
-    margin-top: 25px;
+    margin-top: 22px;
     display: flex;
     justify-content: space-between;
 }
 
 .btn {
     display: inline-block;
-    padding: 9px 16px;
+    padding: 8px 14px;
     background: #1f3a5f;
     color: white;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 5px;
     border: none;
-    font-size: 14px;
+    font-size: 13px;
     cursor: pointer;
 }
 
@@ -235,47 +237,46 @@ h1 {
         </div>
     </div>
 
-    <!-- Questions 15–20 -->
+    <!-- Questions 15–20: Options first, then each question below -->
     <div class="question-block">
         <p><strong>Questions 15–20</strong><br>
         What information does Megan give about each of the following job opportunities?<br>
-        Choose <strong>SIX</strong> answers from the box and write the correct letter, A–H, next to Questions 15–20.<br>
-        <em>Drag an item and drop it onto the space below each job title.</em></p>
+        Choose <strong>SIX</strong> answers from the box below and drag the correct letter to the corresponding question.</p>
 
-        <div class="drag-container">
-            <div class="drag-box">
-                <p><strong>Information</strong></p>
-                <div class="draggable-item" draggable="true" data-value="A">A not a permanent job</div>
-                <div class="draggable-item" draggable="true" data-value="B">B involves leading a team</div>
-                <div class="draggable-item" draggable="true" data-value="C">C experience not essential</div>
-                <div class="draggable-item" draggable="true" data-value="D">D intensive work but also fun</div>
-                <div class="draggable-item" draggable="true" data-value="E">E chance to earn more through overtime</div>
-                <div class="draggable-item" draggable="true" data-value="F">F chance for rapid promotion</div>
-                <div class="draggable-item" draggable="true" data-value="G">G accommodation available</div>
-                <div class="draggable-item" draggable="true" data-value="H">H local travel involved</div>
-            </div>
+        <!-- Options Box (First) -->
+        <div class="drag-box">
+            <p><strong>Information</strong></p>
+            <div class="draggable-item" draggable="true" data-value="A">A not a permanent job</div>
+            <div class="draggable-item" draggable="true" data-value="B">B involves leading a team</div>
+            <div class="draggable-item" draggable="true" data-value="C">C experience not essential</div>
+            <div class="draggable-item" draggable="true" data-value="D">D intensive work but also fun</div>
+            <div class="draggable-item" draggable="true" data-value="E">E chance to earn more through overtime</div>
+            <div class="draggable-item" draggable="true" data-value="F">F chance for rapid promotion</div>
+            <div class="draggable-item" draggable="true" data-value="G">G accommodation available</div>
+            <div class="draggable-item" draggable="true" data-value="H">H local travel involved</div>
+        </div>
 
-            <div class="drag-box">
-                <p><strong>Job opportunities</strong></p>
+        <!-- Questions (Each below the options) -->
+        <div class="drag-box">
+            <p><strong>Job opportunities</strong></p>
 
-                <p><strong>15 Fresh food commercial manager</strong></p>
-                <div class="drop-target" data-q="15"></div>
+            <p><strong>15 Fresh food commercial manager</strong></p>
+            <div class="drop-target" data-q="15"></div>
 
-                <p><strong>16 Agronomist</strong></p>
-                <div class="drop-target" data-q="16"></div>
+            <p><strong>16 Agronomist</strong></p>
+            <div class="drop-target" data-q="16"></div>
 
-                <p><strong>17 Fresh produce buyer</strong></p>
-                <div class="drop-target" data-q="17"></div>
+            <p><strong>17 Fresh produce buyer</strong></p>
+            <div class="drop-target" data-q="17"></div>
 
-                <p><strong>18 Garden centre sales manager</strong></p>
-                <div class="drop-target" data-q="18"></div>
+            <p><strong>18 Garden centre sales manager</strong></p>
+            <div class="drop-target" data-q="18"></div>
 
-                <p><strong>19 Tree technician</strong></p>
-                <div class="drop-target" data-q="19"></div>
+            <p><strong>19 Tree technician</strong></p>
+            <div class="drop-target" data-q="19"></div>
 
-                <p><strong>20 Farm worker</strong></p>
-                <div class="drop-target" data-q="20"></div>
-            </div>
+            <p><strong>20 Farm worker</strong></p>
+            <div class="drop-target" data-q="20"></div>
         </div>
     </div>
 
@@ -289,7 +290,7 @@ h1 {
 
 <!-- JavaScript -->
 <script>
-// --- AUDIO CONTROL ---
+// --- AUDIO CONTROL: Prevent rewinding/seeking ---
 const audio = document.getElementById('listeningAudio');
 let lastValidTime = 0;
 
