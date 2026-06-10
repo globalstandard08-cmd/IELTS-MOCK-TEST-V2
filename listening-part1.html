@@ -32,7 +32,6 @@ body {
     object-fit: contain;
 }
 
-/* Section Header / Tabs Style */
 .section-header {
     background-color: #1f3a5f;
     color: white;
@@ -52,7 +51,6 @@ body {
     text-align: center;
 }
 
-/* Disable seeking/rewind */
 audio {
     width: 100%;
 }
@@ -74,11 +72,25 @@ h1 {
 
 .question-block {
     margin-bottom: 25px;
-    line-height: 2;
+    line-height: 2.2;
+    font-size: 16px;
+}
+
+.input-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 6px;
+}
+
+.question-number {
+    font-weight: bold;
+    color: #1f3a5f;
+    min-width: 25px;
 }
 
 input[type="text"] {
-    width: 180px;
+    width: 160px;
     padding: 6px 8px;
     font-size: 15px;
     border: 1px solid #ccc;
@@ -107,6 +119,14 @@ input[type="text"] {
 .btn:hover {
     background: #2e568c;
 }
+
+.save-note {
+    margin-top: 15px;
+    color: #28a745;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+}
 </style>
 </head>
 
@@ -115,7 +135,7 @@ input[type="text"] {
 <div class="container">
     <!-- Logo -->
     <div class="logo">
-        <img src="ielts-logo.png" alt="IELTS Logo">
+        <img src="ielts-logo.png.png" alt="IELTS Logo">
     </div>
 
     <!-- Section Header -->
@@ -144,31 +164,73 @@ input[type="text"] {
         <p>The course focuses on skills and safety.</p>
 
         <p>• Charlie would be placed in Level 5.<br>
-        • First of all, children at this level are taken to practise in a <input type="text" name="q1">.</p>
+        • First of all, children at this level are taken to practise in a
+        <span class="input-wrapper">
+            <span class="question-number">1</span>
+            <input type="text" name="q1" id="q1">
+        </span>.</p>
 
         <p><strong>Instructors</strong><br>
-        • Instructors wear <input type="text" name="q2"> shirts.<br>
-        • A <input type="text" name="q3"> is required and training is given.</p>
+        • Instructors wear
+        <span class="input-wrapper">
+            <span class="question-number">2</span>
+            <input type="text" name="q2" id="q2">
+        </span> shirts.<br>
+        • A
+        <span class="input-wrapper">
+            <span class="question-number">3</span>
+            <input type="text" name="q3" id="q3">
+        </span> is required and training is given.</p>
 
         <p><strong>Classes</strong><br>
         • The size of the classes is limited.<br>
-        • There are quiet times during the morning for a <input type="text" name="q4"> or a game.<br>
-        • Classes are held even if there is <input type="text" name="q5">.</p>
+        • There are quiet times during the morning for a
+        <span class="input-wrapper">
+            <span class="question-number">4</span>
+            <input type="text" name="q4" id="q4">
+        </span> or a game.<br>
+        • Classes are held even if there is
+        <span class="input-wrapper">
+            <span class="question-number">5</span>
+            <input type="text" name="q5" id="q5">
+        </span>.</p>
 
         <p><strong>What to bring</strong><br>
         • a change of clothing<br>
-        • a <input type="text" name="q6">.<br>
+        • a
+        <span class="input-wrapper">
+            <span class="question-number">6</span>
+            <input type="text" name="q6" id="q6">
+        </span>.<br>
         • shoes (not sandals)<br>
-        • Charlie's <input type="text" name="q7">.</p>
+        • Charlie's
+        <span class="input-wrapper">
+            <span class="question-number">7</span>
+            <input type="text" name="q7" id="q7">
+        </span>.</p>
 
         <p><strong>Day 1</strong><br>
         • Charlie should arrive at 9.20 am on the first day.<br>
-        • Before the class, his <input type="text" name="q8"> will be checked.<br>
-        • He should then go to the <input type="text" name="q9"> to meet his class instructor.</p>
+        • Before the class, his
+        <span class="input-wrapper">
+            <span class="question-number">8</span>
+            <input type="text" name="q8" id="q8">
+        </span> will be checked.<br>
+        • He should then go to the
+        <span class="input-wrapper">
+            <span class="question-number">9</span>
+            <input type="text" name="q9" id="q9">
+        </span> to meet his class instructor.</p>
 
         <p><strong>Cost</strong><br>
-        • The course costs $ <input type="text" name="q10"> per week.</p>
+        • The course costs $
+        <span class="input-wrapper">
+            <span class="question-number">10</span>
+            <input type="text" name="q10" id="q10">
+        </span> per week.</p>
     </div>
+
+    <div id="saveNote" class="save-note">✓ Answers saved automatically</div>
 
     <div class="nav-buttons">
         <a href="./listening-intro.html" class="btn">Previous</a>
@@ -176,23 +238,53 @@ input[type="text"] {
     </div>
 </div>
 
-<!-- JavaScript to disable seeking/jumping -->
+<!-- JavaScript -->
 <script>
-    const audio = document.getElementById('listeningAudio');
-    let lastTime = 0;
+// --- AUDIO CONTROL: Prevent rewinding/seeking ---
+const audio = document.getElementById('listeningAudio');
+let lastValidTime = 0;
 
-    audio.addEventListener('timeupdate', function() {
-        if (this.currentTime > lastTime + 0.5) {
-            this.currentTime = lastTime;
-        } else {
-            lastTime = this.currentTime;
-        }
-    });
+// Block seeking
+audio.addEventListener('seeking', function(e) {
+    e.preventDefault();
+    this.currentTime = lastValidTime;
+});
 
-    audio.addEventListener('seeking', function(e) {
-        e.preventDefault();
-        this.currentTime = lastTime;
+// Only allow forward play
+audio.addEventListener('timeupdate', function() {
+    if (this.currentTime > lastValidTime + 0.8) {
+        this.currentTime = lastValidTime;
+    } else {
+        lastValidTime = this.currentTime;
+    }
+});
+
+// --- AUTOMATIC ANSWER SAVING ---
+const inputs = document.querySelectorAll('input[type="text"]');
+const saveNote = document.getElementById('saveNote');
+
+// Load saved answers when page opens
+window.addEventListener('load', function() {
+    inputs.forEach(input => {
+        const saved = localStorage.getItem('listening_part1_' + input.id);
+        if (saved) input.value = saved;
     });
+});
+
+// Save automatically when typing
+inputs.forEach(input => {
+    input.addEventListener('input', function() {
+        const value = this.value.trim().toUpperCase();
+        localStorage.setItem('listening_part1_' + this.id, value);
+        
+        // Show save confirmation briefly
+        saveNote.style.display = 'block';
+        clearTimeout(window.saveTimer);
+        window.saveTimer = setTimeout(() => {
+            saveNote.style.display = 'none';
+        }, 1200);
+    });
+});
 </script>
 
 </body>
