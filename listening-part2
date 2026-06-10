@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IELTS Listening - Part 2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 40px;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    height: 120px;
+    object-fit: contain;
+}
+
+.section-header {
+    background-color: #1f3a5f;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.audio-player {
+    background-color: #f8fbfe;
+    border: 1px solid #d4e0ed;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+audio {
+    width: 100%;
+}
+
+h1 {
+    color: #1f3a5f;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.instructions {
+    background-color: #f8fbfe;
+    border-left: 4px solid #1f3a5f;
+    padding: 15px;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.question-block {
+    margin-bottom: 30px;
+    line-height: 2;
+    font-size: 16px;
+}
+
+.question-number {
+    font-weight: bold;
+    color: #1f3a5f;
+    display: inline-block;
+    min-width: 35px;
+}
+
+.option-item {
+    margin: 8px 0 8px 35px;
+    cursor: pointer;
+}
+
+.drag-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.drag-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+.draggable-item {
+    background: #e8f0fe;
+    border: 1px solid #b0c4de;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 4px;
+    cursor: grab;
+    user-select: none;
+}
+
+.drop-target {
+    background: #f9f9f9;
+    border: 1px dashed #999;
+    padding: 10px;
+    min-height: 42px;
+    display: inline-block;
+    min-width: 50px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.drop-target.highlight {
+    background: #e6f7ff;
+    border-color: #1890ff;
+}
+
+.save-note {
+    margin-top: 15px;
+    color: #28a745;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+}
+
+.nav-buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #1f3a5f;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #2e568c;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <!-- Logo -->
+    <div class="logo">
+        <img src="ielts-logo.png" alt="IELTS Logo">
+    </div>
+
+    <!-- Section Header -->
+    <div class="section-header">
+        Listening | Part 2
+    </div>
+
+    <!-- Audio Player -->
+    <div class="audio-player">
+        <p><strong>Audio Recording</strong> (Plays once only - cannot rewind or skip)</p>
+        <audio id="listeningAudio" controls controlsList="nodownload noplaybackrate">
+            <source src="audio/part2.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        
+    </div>
+
+    <h1>Questions 11–20</h1>
+
+    <!-- Questions 11-12 -->
+    <div class="question-block">
+        <p><strong>Questions 11 and 12</strong><br>
+        Choose <strong>TWO</strong> letters, A–E.</p>
+
+        <p>According to Megan, what are the TWO main advantages of working in the agriculture and horticulture sectors?</p>
+
+        <div class="option-item">
+            <label><input type="checkbox" name="q11_12" value="A"> A the active lifestyle</label>
+        </div>
+        <div class="option-item">
+            <label><input type="checkbox" name="q11_12" value="B"> B the above-average salaries</label>
+        </div>
+        <div class="option-item">
+            <label><input type="checkbox" name="q11_12" value="C"> C the flexible working opportunities</label>
+        </div>
+        <div class="option-item">
+            <label><input type="checkbox" name="q11_12" value="D"> D the opportunities for overseas travel</label>
+        </div>
+        <div class="option-item">
+            <label><input type="checkbox" name="q11_12" value="E"> E the chance to be in a natural environment</label>
+        </div>
+    </div>
+
+    <!-- Questions 13-14 -->
+    <div class="question-block">
+        <p><strong>Questions 13 and 14</strong><br>
+        Choose <strong>TWO</strong> letters, A–E.</p>
+
+        <p>Which TWO of the following are likely to be disadvantages for people working outdoors?</p>
+
+        <div class="option-item">
+            <label><input type="checkbox" name="q13_14" value="A"> A the increasing risk of accidents</label>
+        </div>
+        <div class="option-item">
+            <label><input type="checkbox" name="q13_14" value="B"> B being in a very quiet location</label>
+        </div>
+        <div class="option-item">
+            <label><input type="checkbox" name="q13_14" value="C"> C difficult weather conditions at times</label>
+        </div>
+        <div class="option-item">
+            <label><input type="checkbox" name="q13_14" value="D"> D the cost of housing</label>
+        </div>
+        <div class="option-item">
+            <label><input type="checkbox" name="q13_14" value="E"> E the level of physical fitness required</label>
+        </div>
+    </div>
+
+    <!-- Questions 15-20 Drag & Drop -->
+    <div class="question-block">
+        <p><strong>Questions 15–20</strong><br>
+        What information does Megan give about each of the following job opportunities?<br>
+        Choose <strong>SIX</strong> answers from the box and write the correct letter, A–H, next to Questions 15–20.<br>
+        <em>Click and hold an item, then drag it to the correct number.</em></p>
+
+        <div class="drag-container">
+            <div class="drag-box">
+                <p><strong>Information</strong></p>
+                <div class="draggable-item" draggable="true" data-value="A">A not a permanent job</div>
+                <div class="draggable-item" draggable="true" data-value="B">B involves leading a team</div>
+                <div class="draggable-item" draggable="true" data-value="C">C experience not essential</div>
+                <div class="draggable-item" draggable="true" data-value="D">D intensive work but also fun</div>
+                <div class="draggable-item" draggable="true" data-value="E">E chance to earn more through overtime</div>
+                <div class="draggable-item" draggable="true" data-value="F">F chance for rapid promotion</div>
+                <div class="draggable-item" draggable="true" data-value="G">G accommodation available</div>
+                <div class="draggable-item" draggable="true" data-value="H">H local travel involved</div>
+            </div>
+
+            <div class="drag-box">
+                <p><strong>Job opportunities</strong></p>
+                <p><span class="question-number">15</span> Fresh food commercial manager: <span class="drop-target" data-q="15"></span></p>
+                <p><span class="question-number">16</span> Agronomist: <span class="drop-target" data-q="16"></span></p>
+                <p><span class="question-number">17</span> Fresh produce buyer: <span class="drop-target" data-q="17"></span></p>
+                <p><span class="question-number">18</span> Garden centre sales manager: <span class="drop-target" data-q="18"></span></p>
+                <p><span class="question-number">19</span> Tree technician: <span class="drop-target" data-q="19"></span></p>
+                <p><span class="question-number">20</span> Farm worker: <span class="drop-target" data-q="20"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="saveNote" class="save-note">✓ Answers saved automatically</div>
+
+    <div class="nav-buttons">
+        <a href="./listening-part1.html" class="btn">Previous</a>
+        <a href="./listening-part3.html" class="btn">Next</a>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+// --- AUDIO CONTROL ---
+const audio = document.getElementById('listeningAudio');
+let lastValidTime = 0;
+
+audio.addEventListener('seeking', function(e) {
+    e.preventDefault();
+    this.currentTime = lastValidTime;
+});
+
+audio.addEventListener('timeupdate', function() {
+    if (this.currentTime > lastValidTime + 0.8) {
+        this.currentTime = lastValidTime;
+    } else {
+        lastValidTime = this.currentTime;
+    }
+});
+
+// --- DRAG & DROP ---
+let draggedElement = null;
+
+document.querySelectorAll('.draggable-item').forEach(item => {
+    item.addEventListener('dragstart', function(e) {
+        draggedElement = this;
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/plain', this.dataset.value);
+        setTimeout(() => this.style.opacity = '0.5', 0);
+    });
+
+    item.addEventListener('dragend', function() {
+        this.style.opacity = '1';
+        document.querySelectorAll('.drop-target').forEach(t => t.classList.remove('highlight'));
+    });
+});
+
+document.querySelectorAll('.drop-target').forEach(target => {
+    target.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        this.classList.add('highlight');
+    });
+
+    target.addEventListener('dragleave', function() {
+        this.classList.remove('highlight');
+    });
+
+    target.addEventListener('drop', function(e) {
+        e.preventDefault();
+        this.classList.remove('highlight');
+        const value = e.dataTransfer.getData('text/plain');
+        this.textContent = value;
+        saveAllAnswers();
+    });
+});
+
+// --- AUTO SAVE & LOAD ---
+const saveNote = document.getElementById('saveNote');
+
+function saveAllAnswers() {
+    // Save checkboxes
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        localStorage.setItem('listening_part2_' + checkbox.name + '_' + checkbox.value, checkbox.checked);
+    });
+    // Save drag-drop answers
+    document.querySelectorAll('.drop-target').forEach(target => {
+        localStorage.setItem('listening_part2_q' + target.dataset.q, target.textContent);
+    });
+    // Show save message
+    saveNote.style.display = 'block';
+    clearTimeout(window.saveTimer);
+    window.saveTimer = setTimeout(() => saveNote.style.display = 'none', 1200);
+}
+
+function loadSavedAnswers() {
+    // Load checkboxes
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        const saved = localStorage.getItem('listening_part2_' + checkbox.name + '_' + checkbox.value);
+        if (saved === 'true') checkbox.checked = true;
+    });
+    // Load drag-drop
+    document.querySelectorAll('.drop-target').forEach(target => {
+        const saved = localStorage.getItem('listening_part2_q' + target.dataset.q);
+        if (saved) target.textContent = saved;
+    });
+}
+
+// Load answers when page opens
+window.addEventListener('load', loadSavedAnswers);
+
+// Save when checkbox changes
+document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', saveAllAnswers);
+});
+</script>
+
+</body>
+</html>
