@@ -32,10 +32,36 @@ body {
     object-fit: contain;
 }
 
+/* Section Header / Tabs Style */
+.section-header {
+    background-color: #1f3a5f;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.audio-player {
+    background-color: #f8fbfe;
+    border: 1px solid #d4e0ed;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Disable seeking/rewind */
+audio {
+    width: 100%;
+}
+
 h1 {
     color: #1f3a5f;
     text-align: center;
     margin-bottom: 25px;
+    font-size: 22px;
 }
 
 .instructions {
@@ -87,15 +113,28 @@ input[type="text"] {
 <body>
 
 <div class="container">
-    <!-- Logo added here -->
+    <!-- Logo -->
     <div class="logo">
-        <img src="ielts-logo.png" alt="IELTS Logo">
+        <img src="ielts-logo.png.png" alt="IELTS Logo">
     </div>
 
-    <h1>Listening Part 1</h1>
+    <!-- Section Header -->
+    <div class="section-header">
+        Listening | Part 1
+    </div>
+
+    <!-- Audio Player (No Rewind / No Jump) -->
+    <div class="audio-player">
+        <p><strong>Audio Recording</strong> (Plays once only - cannot rewind or skip)</p>
+        <audio id="listeningAudio" controls controlsList="nodownload noplaybackrate">
+            <source src="listening-part1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        
+    </div>
+
+    <h1>Questions 1–10</h1>
 
     <div class="instructions">
-        <strong>Questions 1–10</strong><br>
         Complete the notes below.<br>
         Write <strong>ONE WORD AND/OR A NUMBER</strong> for each answer.
     </div>
@@ -105,7 +144,7 @@ input[type="text"] {
         <p>The course focuses on skills and safety.</p>
 
         <p>• Charlie would be placed in Level 5.<br>
-        • First of all, children at this level are taken to practise in a <input type="text" name="q1"> .</p>
+        • First of all, children at this level are taken to practise in a <input type="text" name="q1">.</p>
 
         <p><strong>Instructors</strong><br>
         • Instructors wear <input type="text" name="q2"> shirts.<br>
@@ -114,13 +153,13 @@ input[type="text"] {
         <p><strong>Classes</strong><br>
         • The size of the classes is limited.<br>
         • There are quiet times during the morning for a <input type="text" name="q4"> or a game.<br>
-        • Classes are held even if there is <input type="text" name="q5"> .</p>
+        • Classes are held even if there is <input type="text" name="q5">.</p>
 
         <p><strong>What to bring</strong><br>
         • a change of clothing<br>
-        • a <input type="text" name="q6"> .<br>
+        • a <input type="text" name="q6">.<br>
         • shoes (not sandals)<br>
-        • Charlie's <input type="text" name="q7"> .</p>
+        • Charlie's <input type="text" name="q7">.</p>
 
         <p><strong>Day 1</strong><br>
         • Charlie should arrive at 9.20 am on the first day.<br>
@@ -136,6 +175,25 @@ input[type="text"] {
         <a href="./listening-part2.html" class="btn">Next</a>
     </div>
 </div>
+
+<!-- JavaScript to disable seeking/jumping -->
+<script>
+    const audio = document.getElementById('listeningAudio');
+    let lastTime = 0;
+
+    audio.addEventListener('timeupdate', function() {
+        if (this.currentTime > lastTime + 0.5) {
+            this.currentTime = lastTime;
+        } else {
+            lastTime = this.currentTime;
+        }
+    });
+
+    audio.addEventListener('seeking', function(e) {
+        e.preventDefault();
+        this.currentTime = lastTime;
+    });
+</script>
 
 </body>
 </html>
