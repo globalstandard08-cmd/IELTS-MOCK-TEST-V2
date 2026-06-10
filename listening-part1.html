@@ -2,263 +2,139 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>IELTS Listening - Part 1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IELTS Listening Part 1</title>
 
 <style>
 body {
     font-family: Arial, sans-serif;
+    background: #f4f6f9;
     margin: 0;
-    padding: 20px;
-    line-height: 1.6;
+    padding: 40px;
 }
 
-/* NAV */
-.tabs {
-    background:#222;
-    margin:-20px -20px 20px -20px;
-    padding:10px;
-}
-.tab-link {
-    color:white;
-    padding:10px 15px;
-    text-decoration:none;
-}
-.tab-link.active { background:#444; }
-
-/* HEADER */
-.header-bar {
-    background:#eee;
-    padding:15px;
-    margin:-20px -20px 20px -20px;
-    display:flex;
-    justify-content:space-between;
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* NAV BUTTONS */
-.navigator {
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin:10px 0;
-}
-.nav-q {
-    padding:6px 10px;
-    border:1px solid #999;
-    background:white;
-    cursor:pointer;
-}
-.nav-q.answered {
-    background:#28a745;
-    color:white;
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* AUDIO */
-.audio-box {
-    background:#f8f9fa;
-    padding:15px;
-    border:1px solid #ddd;
-    margin:15px 0;
+.logo img {
+    height: 120px;
+    object-fit: contain;
 }
 
-/* INPUT STYLE */
-.inline-input {
-    width:160px;
-    padding:3px 6px;
-    margin-left:6px;
-    text-transform:uppercase;
+h1 {
+    color: #1f3a5f;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
-/* HIGHLIGHT */
-.highlight {
-    background: yellow;
+.instructions {
+    background-color: #f8fbfe;
+    border-left: 4px solid #1f3a5f;
+    padding: 15px;
+    margin-bottom: 25px;
+    line-height: 1.7;
 }
 
-/* BUTTON */
+.question-block {
+    margin-bottom: 25px;
+    line-height: 2;
+}
+
+input[type="text"] {
+    width: 180px;
+    padding: 6px 8px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.nav-buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .btn {
-    padding:10px 15px;
-    background:#007bff;
-    color:white;
-    border:none;
-    cursor:pointer;
+    display: inline-block;
+    padding: 12px 20px;
+    background: #1f3a5f;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #2e568c;
 }
 </style>
-
-<script>
-
-const totalQ = 10;
-
-/* SAVE */
-function saveAnswer(id,val){
-    localStorage.setItem(id,val);
-    updateNav();
-}
-
-/* NAV */
-function goTo(n){
-    document.getElementById('q'+n).scrollIntoView({behavior:'smooth',block:'center'});
-}
-
-/* NAV STATE */
-function updateNav(){
-    for(let i=1;i<=totalQ;i++){
-        let v=document.getElementById('q'+i).value.trim();
-        document.getElementById('nav'+i).classList.toggle('answered',v!=='');
-    }
-}
-
-/* RESTORE */
-window.addEventListener('load',()=>{
-    for(let i=1;i<=totalQ;i++){
-        let s=localStorage.getItem('listening_q'+i);
-        if(s) document.getElementById('q'+i).value=s;
-    }
-    updateNav();
-});
-
-/* TIMER */
-window.addEventListener('load',()=>{
-    if(!localStorage.getItem('t')){
-        localStorage.setItem('t',30*60);
-    }
-    let t=parseInt(localStorage.getItem('t'));
-
-    setInterval(()=>{
-        let m=Math.floor(t/60);
-        let s=t%60;
-        document.getElementById('countdown').textContent=
-        String(m).padStart(2,'0')+":"+String(s).padStart(2,'0');
-
-        if(t>0){
-            t--;
-            localStorage.setItem('t',t);
-        }
-    },1000);
-});
-
-/* HIGHLIGHT */
-function highlight(){
-    let sel=window.getSelection();
-    if(!sel.toString()) return;
-
-    let span=document.createElement("span");
-    span.className="highlight";
-    span.textContent=sel.toString();
-
-    let range=sel.getRangeAt(0);
-    range.deleteContents();
-    range.insertNode(span);
-}
-
-</script>
 </head>
 
 <body>
 
-<!-- TABS -->
-<div class="tabs">
-<a class="tab-link active" href="listening-part1.html">Listening Part 1</a>
-<a class="tab-link" href="listening-part2.html">Part 2</a>
-<a class="tab-link" href="listening-part3.html">Part 3</a>
-<a class="tab-link" href="listening-part4.html">Part 4</a>
-<a class="tab-link" href="reading/reading1.html">Reading</a>
-<a class="tab-link" href="writing.html">Writing</a>
-</div>
+<div class="container">
+    <!-- Logo added here -->
+    <div class="logo">
+        <img src="ielts-logo.png" alt="IELTS Logo">
+    </div>
 
-<!-- HEADER -->
-<div class="header-bar">
-<h2>IELTS Listening Test</h2>
-<div>Time: <span id="countdown">30:00</span></div>
-</div>
+    <h1>Listening Part 1</h1>
 
-<!-- NAV -->
-<div class="navigator">
-<script>
-for(let i=1;i<=10;i++){
-document.write(`<button class="nav-q" id="nav${i}" onclick="goTo(${i})">Q${i}</button>`);
-}
-</script>
-</div>
+    <div class="instructions">
+        <strong>Questions 1–10</strong><br>
+        Complete the notes below.<br>
+        Write <strong>ONE WORD AND/OR A NUMBER</strong> for each answer.
+    </div>
 
-<!-- AUDIO -->
-<div class="audio-box">
-<audio controls>
-<source src="audio/part1.mp3" type="audio/mpeg">
-</audio>
-</div>
+    <div class="question-block">
+        <h3>JUNIOR CYCLE CAMP</h3>
+        <p>The course focuses on skills and safety.</p>
 
-<button class="btn" onclick="highlight()">Highlight Selection</button>
+        <p>• Charlie would be placed in Level 5.<br>
+        • First of all, children at this level are taken to practise in a <input type="text" name="q1"> .</p>
 
-<h3>PART 1 Questions 1–10</h3>
+        <p><strong>Instructors</strong><br>
+        • Instructors wear <input type="text" name="q2"> shirts.<br>
+        • A <input type="text" name="q3"> is required and training is given.</p>
 
-<div style="background:#f9f9f9;padding:20px;border:1px solid #ccc;line-height:2;">
+        <p><strong>Classes</strong><br>
+        • The size of the classes is limited.<br>
+        • There are quiet times during the morning for a <input type="text" name="q4"> or a game.<br>
+        • Classes are held even if there is <input type="text" name="q5"> .</p>
 
-<pre style="font-family:Arial;white-space:pre-wrap;">
+        <p><strong>What to bring</strong><br>
+        • a change of clothing<br>
+        • a <input type="text" name="q6"> .<br>
+        • shoes (not sandals)<br>
+        • Charlie's <input type="text" name="q7"> .</p>
 
-PART 1 Questions 1–10
-Complete the notes below.
-Write ONE WORD AND/OR A NUMBER for each answer.
+        <p><strong>Day 1</strong><br>
+        • Charlie should arrive at 9.20 am on the first day.<br>
+        • Before the class, his <input type="text" name="q8"> will be checked.<br>
+        • He should then go to the <input type="text" name="q9"> to meet his class instructor.</p>
 
-JUNIOR CYCLE CAMP
+        <p><strong>Cost</strong><br>
+        • The course costs $ <input type="text" name="q10"> per week.</p>
+    </div>
 
-The course focuses on skills and safety.
-
-• Charlie would be placed in Level 5.
-
-• First of all, children at this level are taken to practise in a 
-1 <input id="q1" class="inline-input" oninput="saveAnswer('listening_q1',this.value)">
-
-Instructors
-
-• Instructors wear 
-2 <input id="q2" class="inline-input" oninput="saveAnswer('listening_q2',this.value)"> shirts.
-
-• A 
-3 <input id="q3" class="inline-input" oninput="saveAnswer('listening_q3',this.value)">
-is required and training is given.
-
-Classes
-
-• The size of the classes is limited.
-
-• There are quiet times during the morning for a 
-4 <input id="q4" class="inline-input" oninput="saveAnswer('listening_q4',this.value)"> or a game.
-
-• Classes are held even if there is 
-5 <input id="q5" class="inline-input" oninput="saveAnswer('listening_q5',this.value)">.
-
-What to bring
-
-• a change of clothing
-
-• a 
-6 <input id="q6" class="inline-input" oninput="saveAnswer('listening_q6',this.value)">
-
-• shoes (not sandals)
-
-• Charlie's 
-7 <input id="q7" class="inline-input" oninput="saveAnswer('listening_q7',this.value)">
-
-Day 1
-
-• Charlie should arrive at 9.20 am on the first day.
-
-• Before the class, his 
-8 <input id="q8" class="inline-input" oninput="saveAnswer('listening_q8',this.value)">
-will be checked.
-
-• He should then go to the 
-9 <input id="q9" class="inline-input" oninput="saveAnswer('listening_q9',this.value)">
-to meet his class instructor.
-
-Cost
-
-• The course costs $
-10 <input id="q10" class="inline-input" oninput="saveAnswer('listening_q10',this.value)">
-per week.
-
-</pre>
-
+    <div class="nav-buttons">
+        <a href="./listening-intro.html" class="btn">Previous</a>
+        <a href="./listening-part2.html" class="btn">Next</a>
+    </div>
 </div>
 
 </body>
