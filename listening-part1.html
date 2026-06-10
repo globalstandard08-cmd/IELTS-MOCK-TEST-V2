@@ -13,20 +13,18 @@ body {
     line-height: 1.6;
 }
 
-/* TABS */
+/* NAV */
 .tabs {
     background:#222;
-    padding:10px;
     margin:-20px -20px 20px -20px;
+    padding:10px;
 }
 .tab-link {
     color:white;
     padding:10px 15px;
     text-decoration:none;
 }
-.tab-link.active {
-    background:#444;
-}
+.tab-link.active { background:#444; }
 
 /* HEADER */
 .header-bar {
@@ -35,21 +33,20 @@ body {
     margin:-20px -20px 20px -20px;
     display:flex;
     justify-content:space-between;
-    align-items:center;
 }
 
-/* NAV */
+/* NAV BUTTONS */
 .navigator {
     display:flex;
     flex-wrap:wrap;
     gap:8px;
-    margin:10px 0 20px;
+    margin:10px 0;
 }
 .nav-q {
     padding:6px 10px;
     border:1px solid #999;
-    cursor:pointer;
     background:white;
+    cursor:pointer;
 }
 .nav-q.answered {
     background:#28a745;
@@ -64,34 +61,26 @@ body {
     margin:15px 0;
 }
 
-/* QUESTIONS */
-.notes-box {
-    background:#f9f9f9;
-    padding:20px;
-    border:1px solid #ccc;
-    line-height:2;
-}
-
-.note-row input {
-    padding:4px;
+/* INPUT STYLE */
+.inline-input {
     width:160px;
-    margin:0 6px;
+    padding:3px 6px;
+    margin-left:6px;
     text-transform:uppercase;
 }
 
-/* BUTTONS */
+/* HIGHLIGHT */
+.highlight {
+    background: yellow;
+}
+
+/* BUTTON */
 .btn {
     padding:10px 15px;
     background:#007bff;
     color:white;
     border:none;
     cursor:pointer;
-    margin-right:10px;
-}
-
-/* HIGHLIGHT */
-.highlight {
-    background: yellow;
 }
 </style>
 
@@ -108,7 +97,6 @@ function saveAnswer(id,val){
 /* NAV */
 function goTo(n){
     document.getElementById('q'+n).scrollIntoView({behavior:'smooth',block:'center'});
-    document.getElementById('q'+n).focus();
 }
 
 /* NAV STATE */
@@ -134,11 +122,13 @@ window.addEventListener('load',()=>{
         localStorage.setItem('t',30*60);
     }
     let t=parseInt(localStorage.getItem('t'));
+
     setInterval(()=>{
         let m=Math.floor(t/60);
         let s=t%60;
         document.getElementById('countdown').textContent=
         String(m).padStart(2,'0')+":"+String(s).padStart(2,'0');
+
         if(t>0){
             t--;
             localStorage.setItem('t',t);
@@ -150,12 +140,14 @@ window.addEventListener('load',()=>{
 function highlight(){
     let sel=window.getSelection();
     if(!sel.toString()) return;
+
     let span=document.createElement("span");
     span.className="highlight";
     span.textContent=sel.toString();
-    let r=sel.getRangeAt(0);
-    r.deleteContents();
-    r.insertNode(span);
+
+    let range=sel.getRangeAt(0);
+    range.deleteContents();
+    range.insertNode(span);
 }
 
 </script>
@@ -195,66 +187,78 @@ document.write(`<button class="nav-q" id="nav${i}" onclick="goTo(${i})">Q${i}</b
 </audio>
 </div>
 
-<!-- BUTTON -->
 <button class="btn" onclick="highlight()">Highlight Selection</button>
 
-<!-- QUESTIONS -->
 <h3>PART 1 Questions 1–10</h3>
 
-<div class="notes-box">
+<div style="background:#f9f9f9;padding:20px;border:1px solid #ccc;line-height:2;">
 
-<p style="text-align:center;"><strong>JUNIOR CYCLE CAMP</strong></p>
+<pre style="font-family:Arial;white-space:pre-wrap;">
 
-<p>Complete the notes below.<br>
-Write ONE WORD AND/OR A NUMBER for each answer.</p>
+PART 1 Questions 1–10
+Complete the notes below.
+Write ONE WORD AND/OR A NUMBER for each answer.
 
-<p>The course focuses on skills and safety.</p>
+JUNIOR CYCLE CAMP
 
-<p>1. Practise in a
-<input id="q1" oninput="saveAnswer('listening_q1',this.value)">
-.</p>
+The course focuses on skills and safety.
 
-<p>2. Instructors wear
-<input id="q2" oninput="saveAnswer('listening_q2',this.value)">
-shirts.</p>
+• Charlie would be placed in Level 5.
 
-<p>3. A
-<input id="q3" oninput="saveAnswer('listening_q3',this.value)">
-is required.</p>
+• First of all, children at this level are taken to practise in a 
+1 <input id="q1" class="inline-input" oninput="saveAnswer('listening_q1',this.value)">
 
-<p>4. Quiet time for a
-<input id="q4" oninput="saveAnswer('listening_q4',this.value)">
-or game.</p>
+Instructors
 
-<p>5. Classes even if
-<input id="q5" oninput="saveAnswer('listening_q5',this.value)">
-.</p>
+• Instructors wear 
+2 <input id="q2" class="inline-input" oninput="saveAnswer('listening_q2',this.value)"> shirts.
 
-<p>6. Bring a
-<input id="q6" oninput="saveAnswer('listening_q6',this.value)">
-.</p>
+• A 
+3 <input id="q3" class="inline-input" oninput="saveAnswer('listening_q3',this.value)">
+is required and training is given.
 
-<p>7. Charlie’s
-<input id="q7" oninput="saveAnswer('listening_q7',this.value)">
-.</p>
+Classes
 
-<p>8. Check
-<input id="q8" oninput="saveAnswer('listening_q8',this.value)">
-.</p>
+• The size of the classes is limited.
 
-<p>9. Go to
-<input id="q9" oninput="saveAnswer('listening_q9',this.value)">
-.</p>
+• There are quiet times during the morning for a 
+4 <input id="q4" class="inline-input" oninput="saveAnswer('listening_q4',this.value)"> or a game.
 
-<p>10. Cost $
-<input id="q10" oninput="saveAnswer('listening_q10',this.value)">
-per week.</p>
+• Classes are held even if there is 
+5 <input id="q5" class="inline-input" oninput="saveAnswer('listening_q5',this.value)">.
 
-</div>
+What to bring
 
-<!-- NEXT -->
-<div style="margin-top:20px;">
-<button class="btn" onclick="alert('You can now proceed to Part 2')">Next → Part 2</button>
+• a change of clothing
+
+• a 
+6 <input id="q6" class="inline-input" oninput="saveAnswer('listening_q6',this.value)">
+
+• shoes (not sandals)
+
+• Charlie's 
+7 <input id="q7" class="inline-input" oninput="saveAnswer('listening_q7',this.value)">
+
+Day 1
+
+• Charlie should arrive at 9.20 am on the first day.
+
+• Before the class, his 
+8 <input id="q8" class="inline-input" oninput="saveAnswer('listening_q8',this.value)">
+will be checked.
+
+• He should then go to the 
+9 <input id="q9" class="inline-input" oninput="saveAnswer('listening_q9',this.value)">
+to meet his class instructor.
+
+Cost
+
+• The course costs $
+10 <input id="q10" class="inline-input" oninput="saveAnswer('listening_q10',this.value)">
+per week.
+
+</pre>
+
 </div>
 
 </body>
