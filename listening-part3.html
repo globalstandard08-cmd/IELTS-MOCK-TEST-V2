@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IELTS Listening - Part 3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 780px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.logo img {
+    height: 80px;
+    object-fit: contain;
+}
+
+.section-header {
+    background-color: #1f3a5f;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-bottom: 18px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.audio-player {
+    background-color: #f8fbfe;
+    border: 1px solid #d4e0ed;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 18px;
+    text-align: center;
+    font-size: 13px;
+}
+
+audio {
+    width: 100%;
+}
+
+h1 {
+    color: #1f3a5f;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.instructions {
+    background-color: #f8fbfe;
+    border-left: 3px solid #1f3a5f;
+    padding: 10px;
+    margin-bottom: 18px;
+    line-height: 1.5;
+    font-size: 13px;
+}
+
+.question-block {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 13px;
+}
+
+.option-item {
+    margin: 5px 0;
+    padding: 3px 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.option-item.selected {
+    background-color: #e8f0fe;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.single-answer, .two-answer {
+    margin: 8px 0 12px 0;
+    font-weight: bold;
+    color: #1f3a5f;
+    min-height: 20px;
+}
+
+.save-note {
+    margin-top: 10px;
+    color: #28a745;
+    font-size: 12px;
+    text-align: center;
+    display: none;
+}
+
+.nav-buttons {
+    margin-top: 22px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #1f3a5f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #2e568c;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <!-- Logo -->
+    <div class="logo">
+        <img src="ielts-logo.png" alt="IELTS Logo">
+    </div>
+
+    <!-- Section Header -->
+    <div class="section-header">
+        Listening | Part 3
+    </div>
+
+    <!-- Audio Player -->
+    <div class="audio-player">
+        <p><strong>Audio Recording</strong> (Plays once only - cannot rewind or skip)</p>
+        <audio id="listeningAudio" controls controlsList="nodownload noplaybackrate">
+            <source src="audio/part3.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        
+    </div>
+
+    <h1>Questions 21–30</h1>
+
+    <!-- Questions 21 and 22 -->
+    <div class="question-block">
+        <p><strong>Questions 21 and 22</strong><br>
+        Choose <strong>TWO</strong> letters, A–E.</p>
+
+        <p>Which TWO points does Adam make about his experiment on artificial sweeteners?</p>
+
+        <div class="option-item" data-group="q21_22" data-value="A">A The results were what he had predicted.</div>
+        <div class="option-item" data-group="q21_22" data-value="B">B The experiment was simple to set up.</div>
+        <div class="option-item" data-group="q21_22" data-value="C">C A large sample of people was tested.</div>
+        <div class="option-item" data-group="q21_22" data-value="D">D The subjects were unaware of what they were drinking.</div>
+        <div class="option-item" data-group="q21_22" data-value="E">E The test was repeated several times for each person.</div>
+
+        <div class="two-answer">Answers 21: <span id="ans21"></span> &nbsp;&nbsp; 22: <span id="ans22"></span></div>
+    </div>
+
+    <!-- Questions 23 and 24 -->
+    <div class="question-block">
+        <p><strong>Questions 23 and 24</strong><br>
+        Choose <strong>TWO</strong> letters, A–E.</p>
+
+        <p>Which TWO problems did Rosie have when measuring the fat content of nuts?</p>
+
+        <div class="option-item" data-group="q23_24" data-value="A">A She used the wrong sort of nuts.</div>
+        <div class="option-item" data-group="q23_24" data-value="B">B She used an unsuitable chemical.</div>
+        <div class="option-item" data-group="q23_24" data-value="C">C She did not grind the nuts finely enough.</div>
+        <div class="option-item" data-group="q23_24" data-value="D">D The information on the nut package was incorrect.</div>
+        <div class="option-item" data-group="q23_24" data-value="E">E The weighing scales may have been unsuitable.</div>
+
+        <div class="two-answer">Answers 23: <span id="ans23"></span> &nbsp;&nbsp; 24: <span id="ans24"></span></div>
+    </div>
+
+    <!-- Questions 25-30 -->
+    <div class="question-block">
+        <p><strong>Questions 25–30</strong><br>
+        Choose the correct letter, <strong>A, B or C</strong>.</p>
+
+        <p><strong>25</strong> Adam suggests that restaurants could reduce obesity if their menus</p>
+        <div class="option-item" data-group="q25" data-value="A">A offered fewer options.</div>
+        <div class="option-item" data-group="q25" data-value="B">B had more low-calorie foods.</div>
+        <div class="option-item" data-group="q25" data-value="C">C were organised in a particular way.</div>
+        <div class="single-answer">Answer 25: <span id="ans25"></span></div>
+
+
+        <p><strong>26</strong> The students agree that food manufacturers deliberately</p>
+        <div class="option-item" data-group="q26" data-value="A">A make calorie counts hard to understand.</div>
+        <div class="option-item" data-group="q26" data-value="B">B fail to provide accurate calorie counts.</div>
+        <div class="option-item" data-group="q26" data-value="C">C use ineffective methods to reduce calories.</div>
+        <div class="single-answer">Answer 26: <span id="ans26"></span></div>
+
+
+        <p><strong>27</strong> What does Rosie say about levels of exercise in England?</p>
+        <div class="option-item" data-group="q27" data-value="A">A The amount recommended is much too low.</div>
+        <div class="option-item" data-group="q27" data-value="B">B Most people overestimate how much they do.</div>
+        <div class="option-item" data-group="q27" data-value="C">C Women now exercise more than they used to.</div>
+        <div class="single-answer">Answer 27: <span id="ans27"></span></div>
+
+
+        <p><strong>28</strong> Adam refers to the location and width of stairs in a train station to illustrate</p>
+        <div class="option-item" data-group="q28" data-value="A">A practical changes that can influence people's behaviour.</div>
+        <div class="option-item" data-group="q28" data-value="B">B methods of helping people who have mobility problems.</div>
+        <div class="option-item" data-group="q28" data-value="C">C ways of preventing accidents by controlling crowd movement.</div>
+        <div class="single-answer">Answer 28: <span id="ans28"></span></div>
+
+
+        <p><strong>29</strong> What do the students agree about including reference to exercise in their presentation?</p>
+        <div class="option-item" data-group="q29" data-value="A">A They should probably leave it out.</div>
+        <div class="option-item" data-group="q29" data-value="B">B They need to do more research on it.</div>
+        <div class="option-item" data-group="q29" data-value="C">C They should discuss this with their tutor.</div>
+        <div class="single-answer">Answer 29: <span id="ans29"></span></div>
+
+
+        <p><strong>30</strong> What are the students going to do next for their presentation?</p>
+        <div class="option-item" data-group="q30" data-value="A">A prepare some slides for it</div>
+        <div class="option-item" data-group="q30" data-value="B">B find out how long they have for it</div>
+        <div class="option-item" data-group="q30" data-value="C">C decide on its content and organisation</div>
+        <div class="single-answer">Answer 30: <span id="ans30"></span></div>
+    </div>
+
+    <div id="saveNote" class="save-note">✓ Answers saved automatically</div>
+
+    <div class="nav-buttons">
+        <a href="./listening-part2.html" class="btn">Previous</a>
+        <a href="./listening-part4.html" class="btn">Next</a>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+// --- AUDIO CONTROL ---
+const audio = document.getElementById('listeningAudio');
+let lastValidTime = 0;
+
+audio.addEventListener('seeking', function(e) {
+    e.preventDefault();
+    this.currentTime = lastValidTime;
+});
+
+audio.addEventListener('timeupdate', function() {
+    if (this.currentTime > lastValidTime + 0.8) {
+        this.currentTime = lastValidTime;
+    } else {
+        lastValidTime = this.currentTime;
+    }
+});
+
+// --- ANSWER SELECTION ---
+const optionItems = document.querySelectorAll('.option-item');
+
+optionItems.forEach(item => {
+    item.addEventListener('click', function() {
+        const group = this.dataset.group;
+        const value = this.dataset.value;
+
+        if (group === 'q21_22' || group === 'q23_24') {
+            // Two-answer questions
+            let selected = [];
+            document.querySelectorAll(`[data-group="${group}"]`).forEach(opt => {
+                if (opt.classList.contains('selected')) selected.push(opt.dataset.value);
+            });
+
+            if (this.classList.contains('selected')) {
+                this.classList.remove('selected');
+                selected = selected.filter(v => v !== value);
+            } else {
+                if (selected.length < 2) {
+                    this.classList.add('selected');
+                    selected.push(value);
+                }
+            }
+
+            // Update display
+            if (group === 'q21_22') {
+                document.getElementById('ans21').textContent = selected[0] || '';
+                document.getElementById('ans22').textContent = selected[1] || '';
+            }
+            if (group === 'q23_24') {
+                document.getElementById('ans23').textContent = selected[0] || '';
+                document.getElementById('ans24').textContent = selected[1] || '';
+            }
+
+        } else {
+            // Single answer questions
+            document.querySelectorAll(`[data-group="${group}"]`).forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+            document.getElementById(`ans${group.slice(1)}`).textContent = value;
+        }
+
+        saveAllAnswers();
+    });
+});
+
+// --- AUTO SAVE & LOAD ---
+const saveNote = document.getElementById('saveNote');
+
+function saveAllAnswers() {
+    // Save all selections
+    document.querySelectorAll('.option-item').forEach(opt => {
+        localStorage.setItem(`listening_part3_${opt.dataset.group}_${opt.dataset.value}`, opt.classList.contains('selected'));
+    });
+    // Save displayed answers
+    for (let i = 21; i <= 30; i++) {
+        const val = document.getElementById(`ans${i}`).textContent;
+        localStorage.setItem(`listening_part3_ans${i}`, val);
+    }
+    // Show save message
+    saveNote.style.display = 'block';
+    clearTimeout(window.saveTimer);
+    window.saveTimer = setTimeout(() => saveNote.style.display = 'none', 1200);
+}
+
+function loadSavedAnswers() {
+    // Load selections
+    document.querySelectorAll('.option-item').forEach(opt => {
+        const saved = localStorage.getItem(`listening_part3_${opt.dataset.group}_${opt.dataset.value}`);
+        if (saved === 'true') opt.classList.add('selected');
+    });
+    // Load displayed answers
+    for (let i = 21; i <= 30; i++) {
+        const saved = localStorage.getItem(`listening_part3_ans${i}`);
+        if (saved) document.getElementById(`ans${i}`).textContent = saved;
+    }
+}
+
+// Load answers when page opens
+window.addEventListener('load', loadSavedAnswers);
+</script>
+
+</body>
+</html>
