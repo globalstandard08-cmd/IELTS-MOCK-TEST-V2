@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IELTS Listening - Instructions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 40px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #1f3a5f;
+}
+
+ul {
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: #1f3a5f;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn:hover {
+    background: #2e568c;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div style="text-align:center; margin-bottom: 20px;">
+    <img src="ielts-logo.png.png" alt="IELTS Logo" style="height: 120px; object-fit: contain;">
+</div>
+
+<h1>IELTS Listening Test</h1>
+
+<h3>Instructions</h3>
+
+<ul>
+    <li>You will hear 4 sections of audio</li>
+    <li>You can only hear each recording ONCE</li>
+    <li>Write your answers in CAPITAL LETTERS</li>
+    <li>Do not refresh the page during the test</li>
+    <li>You have 30 minutes total</li>
+</ul>
+
+<p>Click start when you are ready to begin Section 1.</p>
+
+<a class="btn" href="./listening-part1.html">Start Test</a>
+
+</div>
+
+</body>
+</html>
