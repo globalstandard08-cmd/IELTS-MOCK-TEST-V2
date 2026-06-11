@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>IELTS Reading - Passage 1</title>
+<title>IELTS Reading - Introduction</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -17,172 +17,97 @@ body {
     max-width: 780px;
     margin: auto;
     background: white;
-    padding: 25px;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .logo {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .logo img {
-    height: 120px; /* Larger logo */
+    height: 120px;
     object-fit: contain;
 }
 
 .section-header {
     background-color: #1f3a5f;
     color: white;
-    padding: 8px 15px;
+    padding: 12px 15px;
     border-radius: 5px;
-    margin-bottom: 15px;
-    font-size: 15px;
+    margin-bottom: 25px;
+    font-size: 18px;
     font-weight: bold;
-}
-
-.timer-container {
-    background: #fff3cd;
-    color: #856404;
-    padding: 10px 15px;
-    border-radius: 5px;
     text-align: center;
-    font-weight: bold;
-    margin-bottom: 20px;
-    font-size: 16px;
 }
 
 h1 {
     color: #1f3a5f;
     text-align: center;
-    margin-bottom: 15px;
-    font-size: 18px;
+    margin-bottom: 25px;
+    font-size: 22px;
 }
 
-.instructions {
+.content-block {
     background-color: #f8fbfe;
     border-left: 3px solid #1f3a5f;
-    padding: 12px;
-    margin-bottom: 20px;
-    line-height: 1.5;
-    font-size: 13px;
-}
-
-/* Highlight feature like real exam */
-.passage-text {
+    padding: 18px;
+    margin-bottom: 25px;
     line-height: 1.7;
-    font-size: 14px;
-    margin-bottom: 25px;
-    text-align: justify;
-    user-select: text;
-}
-
-.highlight {
-    background-color: #fff350;
-    color: #000;
-}
-
-.question-block {
-    margin-bottom: 25px;
-    line-height: 1.6;
-    font-size: 14px;
-}
-
-.true-false-options {
-    margin: 8px 0 12px 20px;
-}
-
-.true-false-options label {
-    margin-right: 25px;
-    cursor: pointer;
-}
-
-.answer-input {
-    display: inline-block;
-    border: none;
-    border-bottom: 1px solid #333;
-    min-width: 120px;
-    padding: 3px 5px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #1f3a5f;
-    outline: none;
-}
-
-.answer-input:focus {
-    border-bottom: 2px solid #1f3a5f;
-    background-color: #f8fbfe;
-}
-
-.result-box {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #f8fbfe;
-    border-left: 4px solid #1f3a5f;
-    display: none;
-}
-
-.result-summary {
-    font-weight: bold;
-    margin-bottom: 10px;
     font-size: 15px;
 }
 
-.result-item {
-    margin: 6px 0;
+.content-block h3 {
+    color: #1f3a5f;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 17px;
 }
 
-.correct {
-    color: #28a745;
-    font-weight: bold;
+.rules-list {
+    padding-left: 20px;
+    margin: 0;
 }
 
-.wrong {
-    color: #dc3545;
-    font-weight: bold;
+.rules-list li {
+    margin-bottom: 8px;
 }
 
-.save-note {
-    margin-top: 10px;
-    color: #28a745;
-    font-size: 12px;
+.start-button-container {
     text-align: center;
-    display: none;
-}
-
-.nav-buttons {
-    margin-top: 25px;
+    margin-top: 35px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 15px;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
 }
 
 .btn {
     display: inline-block;
-    padding: 8px 14px;
+    padding: 12px 28px;
     background: #1f3a5f;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     border: none;
-    font-size: 13px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
 .btn:hover {
     background: #2e568c;
 }
 
-.btn-submit {
-    background: #007bff;
+.btn-reset {
+    background: #dc3545;
 }
 
-.btn-submit:hover {
-    background: #0056b3;
+.btn-reset:hover {
+    background: #c82333;
 }
 </style>
 </head>
@@ -190,251 +115,53 @@ h1 {
 <body>
 
 <div class="container">
-    <!-- Larger Logo -->
     <div class="logo">
         <img src="ielts-logo.png" alt="IELTS Logo">
     </div>
 
     <div class="section-header">
-        Reading | Passage 1
+        IELTS Computer Based Test
     </div>
 
-    <!-- Shared Timer -->
-    <div class="timer-container">
-        Time Remaining: <span id="timer">60:00</span>
+    <h1>Reading Test</h1>
+
+    <div class="content-block">
+        <h3>You are about to start the Reading Test</h3>
+        <p>The Reading test lasts <strong>60 minutes</strong>. There are 3 sections with 40 questions in total. The timer will start as soon as you begin and will continue running until the time is up — it will not stop or reset when moving between sections.</p>
     </div>
 
-    <h1>READING PASSAGE 1</h1>
-
-    <div class="instructions">
-        <strong>Tip:</strong> Select any text in the passage to highlight it, just like in the real exam.<br>
-        You should spend about 20 minutes on <strong>Questions 1–13</strong>, which are based on Reading Passage 1 below.
+    <div class="content-block">
+        <h3>Instructions</h3>
+        <ul class="rules-list">
+            <li>Answer all questions; there is no penalty for wrong answers.</li>
+            <li>Spelling and grammar must be correct.</li>
+            <li>Do not exceed the word limit given in the instructions.</li>
+            <li>You can move freely between sections during the test.</li>
+            <li>Select text in the passage to highlight it.</li>
+        </ul>
     </div>
 
-    <!-- Passage with Highlight Support -->
-    <div class="passage-text" id="passageArea">
-        <h3>Roman shipbuilding and navigation</h3>
-
-        <p>Shipbuilding today is based on science and ships are built using computers and sophisticated tools. Shipbuilding in ancient Rome, however, was more of an art relying on estimation, inherited techniques and personal experience. The Romans were not traditionally sailors but mostly landbased people, who learned to build ships from the people that they conquered, namely the Greeks and the Egyptians.</p>
-
-        <p>There are a few surviving written documents that give descriptions and representations of ancient Roman ships, including the sails and rigging. Excavated vessels also provide some clues about ancient shipbuilding techniques. Studies of these have taught us that ancient Roman shipbuilders built the outer hull first, then proceeded with the frame and the rest of the ship. Planks used to build the outer hull were initially sewn together. Starting from the 6th century BCE, they were fixed using a method called mortise and tenon, whereby one plank locked into another without the need for stitching. Then in the first centuries of the current era, Mediterranean shipbuilders shifted to another shipbuilding method, still in use today, which consisted of building the frame first and then proceeding with the hull and the other components of the ship. This method was more systematic and dramatically shortened ship construction times. The ancient Romans built large merchant ships and warships whose size and technology were unequalled until the 16th century CE.</p>
-
-        <p>Warships were built to be lightweight and very speedy. They had to be able to sail near the coast, which is why they had no ballast or excess load and were built with a long, narrow hull. They did not sink when damaged and often would lie crippled on the sea's surface following naval battles. They had a bronze battering ram, which was used to pierce the timber hulls or break the oars of enemy vessels. Warships used both wind (sails) and human power (oarsmen) and were therefore very fast. Eventually, Rome's navy became the largest and most powerful in the Mediterranean, and the Romans had control over what they therefore called Mare Nostrum meaning 'our sea'.</p>
-
-        <p>There were many kinds of warship. The 'trireme' was the dominant warship from the 7th to 4th century BCE. It had rowers in the top, middle and lower levels, and approximately 50 rowers in each bank. The rowers at the bottom had the most uncomfortable position as they were under the other rowers and were exposed to the water entering through the oar-holes. It is worth noting that contrary to popular perception, rowers were not slaves but mostly Roman citizens enrolled in the military. The trireme was superseded by larger ships with even more rowers.</p>
-
-        <p>Merchant ships were built to transport lots of cargo over long distances and at a reasonable cost. They had a wider hull, double planking and a solid interior for added stability. Unlike warships, their V-shaped hull was deep underwater, meaning that they could not sail too close to the coast. They usually had two huge side rudders located off the stern and controlled by a small tiller bar connected to a system of cables. They had from one to three masts with large square sails and a small triangular sail at the bow. Just like warships, merchant ships used oarsmen, but coordinating the hundreds of rowers in both types of ship was not an easy task. In order to assist them, music would be played on an instrument, and oars would then keep time with this.</p>
-
-        <p>The cargo on merchant ships included raw materials (e.g. iron bars, copper, marble and granite), and agricultural products (e.g. grain from Egypt's Nile valley). During the Empire, Rome was a huge city by ancient standards of about one million inhabitants. Goods from all over the world would come to the city through the port of Pozzuoli situated west of the bay of Naples in Italy and through the gigantic port of Ostia situated at the mouth of the Tiber River. Large merchant ships would approach the destination port and, just like today, be intercepted by a number of towboats that would drag them to the quay.</p>
-
-        <p>The time of travel along the many sailing routes could vary widely. Navigation in ancient Rome did not rely on sophisticated instruments such as compasses but on experience, local knowledge and observation of natural phenomena. In conditions of good visibility, seamen in the Mediterranean often had the mainland or islands in sight, which greatly facilitated navigation. They sailed by noting their position relative to a succession of recognisable landmarks. When weather conditions were not good or where land was no longer visible, Roman mariners estimated directions from the pole star or, with less accuracy, from the Sun at noon. They also estimated directions relative to the wind and swell. Overall, shipping in ancient Roman times resembled shipping today with large vessels regularly crossing the seas and bringing supplies from their Empire.</p>
-    </div>
-
-    <!-- Questions 1-5 -->
-    <div class="question-block">
-        <p><strong>Questions 1–5</strong><br>
-        Do the following statements agree with the information given in Reading Passage 1?<br>
-        Write <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong></p>
-
-        <p><strong>1</strong> The Romans' shipbuilding skills were passed on to the Greeks and the Egyptians.<br>
-        <span class="true-false-options">
-            <label><input type="radio" name="q1" value="TRUE"> TRUE</label>
-            <label><input type="radio" name="q1" value="FALSE"> FALSE</label>
-            <label><input type="radio" name="q1" value="NOT GIVEN"> NOT GIVEN</label>
-        </span></p>
-
-        <p><strong>2</strong> Skilled craftsmen were needed for the mortise and tenon method of fixing planks.<br>
-        <span class="true-false-options">
-            <label><input type="radio" name="q2" value="TRUE"> TRUE</label>
-            <label><input type="radio" name="q2" value="FALSE"> FALSE</label>
-            <label><input type="radio" name="q2" value="NOT GIVEN"> NOT GIVEN</label>
-        </span></p>
-
-        <p><strong>3</strong> The later practice used by Mediterranean shipbuilders involved building the hull before the frame.<br>
-        <span class="true-false-options">
-            <label><input type="radio" name="q3" value="TRUE"> TRUE</label>
-            <label><input type="radio" name="q3" value="FALSE"> FALSE</label>
-            <label><input type="radio" name="q3" value="NOT GIVEN"> NOT GIVEN</label>
-        </span></p>
-
-        <p><strong>4</strong> The Romans called the Mediterranean Sea Mare Nostrum because they dominated its use.<br>
-        <span class="true-false-options">
-            <label><input type="radio" name="q4" value="TRUE"> TRUE</label>
-            <label><input type="radio" name="q4" value="FALSE"> FALSE</label>
-            <label><input type="radio" name="q4" value="NOT GIVEN"> NOT GIVEN</label>
-        </span></p>
-
-        <p><strong>5</strong> Most rowers on ships were people from the Roman army.<br>
-        <span class="true-false-options">
-            <label><input type="radio" name="q5" value="TRUE"> TRUE</label>
-            <label><input type="radio" name="q5" value="FALSE"> FALSE</label>
-            <label><input type="radio" name="q5" value="NOT GIVEN"> NOT GIVEN</label>
-        </span></p>
-    </div>
-
-    <!-- Questions 6-13 -->
-    <div class="question-block">
-        <p><strong>Questions 6–13</strong><br>
-        Complete the summary below.<br>
-        Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.</p>
-
-        <p><strong>Warships and merchant ships</strong></p>
-
-        <p>Warships were designed so that they were <strong>6</strong> <input type="text" class="answer-input" id="q6"> and moved quickly. They often remained afloat after battles and were able to sail close to land as they lacked any additional weight. A battering ram made of <strong>7</strong> <input type="text" class="answer-input" id="q7"> was included in the design for attacking and damaging the timber and oars of enemy ships. Warships, such as the 'trireme', had rowers on three different <strong>8</strong> <input type="text" class="answer-input" id="q8">.</p>
-
-        <p>Unlike warships, merchant ships had a broad <strong>9</strong> <input type="text" class="answer-input" id="q9"> that lay far below the surface of the sea. Merchant ships were steered through the water with the help of large rudders and a tiller bar. They had both square and <strong>10</strong> <input type="text" class="answer-input" id="q10"> sails. On merchant ships and warships, <strong>11</strong> <input type="text" class="answer-input" id="q11"> was used to ensure rowers moved their oars in and out of the water at the same time.</p>
-
-        <p>Quantities of agricultural goods such as <strong>12</strong> <input type="text" class="answer-input" id="q12"> were transported by merchant ships to two main ports in Italy. The ships were pulled to the shore by <strong>13</strong> <input type="text" class="answer-input" id="q13">.</p>
-    </div>
-
-    <!-- Result Box - Shows only correct/wrong status, no answers -->
-    <div class="result-box" id="resultBox">
-        <div class="result-summary">Your Result: <span id="scoreText"></span></div>
-        <div id="resultDetails"></div>
-    </div>
-
-    <div id="saveNote" class="save-note">✓ Answers saved automatically</div>
-
-    <div class="nav-buttons">
-        <a href="./reading-intro.html" class="btn">Previous</a>
-        <button class="btn btn-submit" onclick="checkAnswers()">Submit Answers</button>
-        <a href="./reading-passage2.html" class="btn">Next</a>
+    <div class="start-button-container">
+        <button class="btn btn-reset" onclick="resetTimer()">Reset Timer</button>
+        <a href="./reading-part1.html" class="btn" onclick="startTimer()">Start Reading Test</a>
     </div>
 </div>
 
-<!-- Highlight Function -->
 <script>
-document.getElementById('passageArea').addEventListener('mouseup', function() {
-    let selection = window.getSelection();
-    if (selection.toString().trim() !== '') {
-        let span = document.createElement('span');
-        span.className = 'highlight';
-        span.textContent = selection.toString();
-        let range = selection.getRangeAt(0);
-        range.deleteContents();
-        range.insertNode(span);
-        selection.removeAllRanges();
-    }
-});
-</script>
-
-<!-- Shared Timer -->
-<script>
-function updateTimer() {
-    const totalTime = 60 * 60 * 1000;
-    const startTime = localStorage.getItem('readingStartTime');
-
-    if (!startTime) {
-        document.getElementById('timer').textContent = "60:00";
-        return;
-    }
-
-    const elapsed = Date.now() - parseInt(startTime);
-    const remaining = totalTime - elapsed;
-
-    if (remaining <= 0) {
-        document.getElementById('timer').textContent = "00:00";
-        alert("Time is up!");
-        return;
-    }
-
-    const minutes = Math.floor(remaining / 60000);
-    const seconds = Math.floor((remaining % 60000) / 1000);
-    document.getElementById('timer').textContent = 
-        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-}
-
-updateTimer();
-setInterval(updateTimer, 1000);
-</script>
-
-<!-- Save & Load Answers -->
-<script>
-const radioInputs = document.querySelectorAll('input[type="radio"]');
-const textInputs = document.querySelectorAll('.answer-input');
-
-radioInputs.forEach(input => {
-    input.addEventListener('change', saveAllAnswers);
-});
-
-textInputs.forEach(input => {
-    input.addEventListener('input', function() {
-        this.value = this.value.trim().replace(/\s+/g, ' ').split(' ')[0] || '';
-        saveAllAnswers();
-    });
-});
-
-function saveAllAnswers() {
-    for (let i = 1; i <= 13; i++) {
-        const radio = document.querySelector(`input[name="q${i}"]:checked`);
-        const text = document.getElementById(`q${i}`);
-        if (radio) localStorage.setItem(`r1_q${i}`, radio.value);
-        if (text) localStorage.setItem(`r1_q${i}`, text.value.trim().toLowerCase());
-    }
-    saveNote.style.display = 'block';
-    clearTimeout(window.saveTimer);
-    window.saveTimer = setTimeout(() => saveNote.style.display = 'none', 1200);
-}
-
-function loadSavedAnswers() {
-    for (let i = 1; i <= 13; i++) {
-        const val = localStorage.getItem(`r1_q${i}`);
-        if (!val) continue;
-        const radio = document.querySelector(`input[name="q${i}"][value="${val.toUpperCase()}"]`);
-        if (radio) radio.checked = true;
-        else {
-            const text = document.getElementById(`q${i}`);
-            if (text) text.value = val;
-        }
+function startTimer() {
+    // Only set if not already started
+    if (!localStorage.getItem('readingStartTime')) {
+        localStorage.setItem('readingStartTime', Date.now());
     }
 }
 
-window.addEventListener('load', loadSavedAnswers);
-</script>
-
-<!-- Answer Checking - NO CORRECT ANSWERS SHOWN -->
-<script>
-// Correct answers stored internally only
-const correctAnswers = {
-    1: "FALSE",
-    2: "NOT GIVEN",
-    3: "FALSE",
-    4: "TRUE",
-    5: "TRUE",
-    6: "lightweight",
-    7: "bronze",
-    8: "levels",
-    9: "hull",
-    10: "triangular",
-    11: "music",
-    12: "grain",
-    13: "towboats"
-};
-
-function checkAnswers() {
-    let score = 0;
-    let detailsHTML = '';
-
-    for (let i = 1; i <= 13; i++) {
-        let userAns = '';
-        const radio = document.querySelector(`input[name="q${i}"]:checked`);
-        const text = document.getElementById(`q${i}`);
-        
-        if (radio) userAns = radio.value.trim().toUpperCase();
-        if (text) userAns = text.value.trim().toLowerCase();
-
-        if (userAns === correctAnswers[i].toLowerCase()) {
-            score++;
-            detailsHTML += `<div class="result-item">Question ${i}: <span class="correct">✓ Correct</span></div>`;
-        } else {
-            detailsHTML += `<div class="result-item">Question ${i}: <span class="wrong">✗ Incorrect</span></div>`;
-        }
+function resetTimer() {
+    if (confirm("This will clear all previous answers and reset the timer. Continue?")) {
+        localStorage.removeItem('readingStartTime');
+        // Clear saved answers
+        for (let i = 1; i <= 13; i++) localStorage.removeItem(`r1_q${i}`);
+        alert("Timer and answers have been reset. You can now start fresh.");
     }
-
-    document.getElementById('scoreText').textContent = `${score} / 13`;
-    document.getElementById('resultDetails').innerHTML = detailsHTML;
-    document.getElementById('resultBox').style.display = 'block';
-    window.scrollTo({ top: document.getElementById('resultBox').offsetTop, behavior: 'smooth' });
 }
 </script>
 
