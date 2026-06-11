@@ -1,148 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>IELTS Reading - Introduction</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f9;
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 780px;
-    margin: auto;
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.logo {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.logo img {
-    height: 80px;
-    object-fit: contain;
-}
-
-.section-header {
-    background-color: #1f3a5f;
-    color: white;
-    padding: 12px 15px;
-    border-radius: 5px;
-    margin-bottom: 25px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-}
-
-h1 {
-    color: #1f3a5f;
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 22px;
-}
-
-.content-block {
-    background-color: #f8fbfe;
-    border-left: 3px solid #1f3a5f;
-    padding: 18px;
-    margin-bottom: 25px;
-    line-height: 1.7;
-    font-size: 15px;
-}
-
-.content-block h3 {
-    color: #1f3a5f;
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-size: 17px;
-}
-
-.rules-list {
-    padding-left: 20px;
-    margin: 0;
-}
-
-.rules-list li {
-    margin-bottom: 8px;
-}
-
-.start-button-container {
-    text-align: center;
-    margin-top: 35px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background: #1f3a5f;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.btn:hover {
-    background: #2e568c;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-    <!-- Logo -->
-    <div class="logo">
-        <img src="ielts-logo.png" alt="IELTS Logo">
-    </div>
-
-    <!-- Section Header -->
-    <div class="section-header">
-        IELTS Computer Based Test
-    </div>
-
-    <h1>Reading Test</h1>
-
-    <div class="content-block">
-        <h3>You are about to start the Reading Test</h3>
-        <p>The Reading test lasts <strong>60 minutes</strong>. There are 3 sections with 40 questions in total. The timer will start as soon as you click "Start Reading Test" and will continue running until the time is up — it will not stop or reset when you move between sections.</p>
-    </div>
-
-    <div class="content-block">
-        <h3>Instructions</h3>
-        <ul class="rules-list">
-            <li>Answer all questions; there is no penalty for wrong answers.</li>
-            <li>Spelling and grammar must be correct.</li>
-            <li>Do not exceed the word limit given in the instructions.</li>
-            <li>You can move freely between sections during the test.</li>
-        </ul>
-    </div>
-
-    <div class="start-button-container">
-        <a href="./reading-passage1.html" class="btn" onclick="startTimer()">Start Reading Test</a>
-    </div>
-</div>
-
+<!-- Replace the existing timer script with this -->
 <script>
-// Start timer and save start time so it persists across pages
-function startTimer() {
-    if (!localStorage.getItem('readingStartTime')) {
-        localStorage.setItem('readingStartTime', Date.now());
-    }
-}
-</script>
+function updateTimer() {
+    const totalMinutes = 60;
+    const totalTime = totalMinutes * 60 * 1000;
+    const startTime = localStorage.getItem('readingStartTime');
+    const timerEl = document.getElementById('timer');
 
-</body>
-</html>
+    if (!startTime) {
+        timerEl.textContent = "60:00";
+        return;
+    }
+
+    const now = Date.now();
+    const elapsed = now - parseInt(startTime);
+    const remaining = totalTime - elapsed;
+
+    if (remaining <= 0) {
+        timerEl.textContent = "00:00";
+        if (!sessionStorage.getItem('alerted')) {
+            alert("Time is up! You may still review and submit answers.");
+            sessionStorage.setItem('alerted', 'true');
+        }
+        return;
+    }
+
+    const mins = Math.floor(remaining / 60000);
+    const secs = Math.floor((remaining % 60000) / 1000);
+    timerEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+// Run immediately and every second
+updateTimer();
+setInterval(updateTimer, 1000);
+</script>
