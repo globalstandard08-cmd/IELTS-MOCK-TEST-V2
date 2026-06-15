@@ -192,13 +192,14 @@ h2 {
     display: inline-block;
     border: none;
     border-bottom: 1px solid #333;
-    min-width: 60px;
-    max-width: 220px;
-    padding: 3px 5px;
+    min-width: 120px;
+    max-width: 180px;
+    padding: 2px 4px;
     font-size: 14px;
     font-weight: 500;
     color: #1f3a5f;
     outline: none;
+    text-align: center;
 }
 
 .answer-input:focus {
@@ -414,16 +415,16 @@ h2 {
                 <p><strong>37</strong> a reference to where the research has been reported <input type="text" class="answer-input" id="q37" maxlength="1"></p>
             </div>
 
-            <!-- Added exactly as provided -->
+            <!-- Updated Questions 38-40: input box inside the blank -->
             <div class="question-block">
                 <p><strong>Questions 38–40</strong><br>
                 Complete the sentences below.<br>
                 Choose <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.<br>
                 Write your answers in boxes 38-40 on your answer sheet.</p>
 
-                <p><strong>38</strong> Daffodils are likely to flower early in response to ......................................................... weather. <input type="text" class="answer-input" id="q38"></p>
-                <p><strong>39</strong> If ash trees come into leaf before oak trees, the weather in ........................................................ will probably be wet. <input type="text" class="answer-input" id="q39"></p>
-                <p><strong>40</strong> The research was carried out using a particular species of ......................................................... <input type="text" class="answer-input" id="q40"></p>
+                <p><strong>38</strong> Daffodils are likely to flower early in response to <input type="text" class="answer-input" id="q38"> weather.</p>
+                <p><strong>39</strong> If ash trees come into leaf before oak trees, the weather in <input type="text" class="answer-input" id="q39"> will probably be wet.</p>
+                <p><strong>40</strong> The research was carried out using a particular species of <input type="text" class="answer-input" id="q40">.</p>
             </div>
 
             <div id="saveNote" class="save-note">✓ Answers saved automatically</div>
@@ -464,7 +465,7 @@ function updateTimer() {
         return;
     }
 
-    const elapsed = Date.now() - parseInt(startTime);
+    const elapsed = Date.now();
     const remaining = totalTime - elapsed;
 
     if (remaining <= 0) {
