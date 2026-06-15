@@ -131,15 +131,52 @@ h2 {
     font-size: 14px;
 }
 
-.true-false-options {
-    margin: 8px 0 12px 20px;
+.tfng-options {
+    margin: 10px 0 15px 0;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
-.true-false-options label {
-    margin-right: 25px;
+.tfng-option {
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    display: inline-block;
-    margin-bottom: 5px;
+    font-size: 14px;
+    user-select: none;
+}
+
+.tfng-option input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+    background: white;
+    transition: all 0.2s;
+}
+
+.tfng-option input[type="radio"]:checked {
+    border-color: #1f3a5f;
+    background: #1f3a5f;
+}
+
+.tfng-option input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+}
+
+.tfng-option:hover input[type="radio"] {
+    border-color: #1f3a5f;
 }
 
 .answer-input {
@@ -157,36 +194,6 @@ h2 {
 .answer-input:focus {
     border-bottom: 2px solid #1f3a5f;
     background-color: #f8fbfe;
-}
-
-.result-box {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #f8fbfe;
-    border-left: 4px solid #1f3a5f;
-    display: none;
-}
-
-.result-summary {
-    font-weight: bold;
-    margin-bottom: 10px;
-    font-size: 15px;
-}
-
-.result-item {
-    margin: 6px 0;
-    font-size: 13px;
-}
-
-.correct {
-    color: #28a745;
-    font-weight: bold;
-}
-
-.wrong {
-    color: #dc3545;
-    font-weight: bold;
 }
 
 .save-note {
@@ -223,14 +230,6 @@ h2 {
     background: #2e568c;
 }
 
-.btn-submit {
-    background: #007bff;
-}
-
-.btn-submit:hover {
-    background: #0056b3;
-}
-
 .btn-export {
     background: #28a745;
 }
@@ -263,7 +262,7 @@ h2 {
     </div>
 
     <div class="content-wrapper">
-        <!-- LEFT COLUMN: PASSAGE -->
+        <!-- LEFT COLUMN: READING PASSAGE -->
         <div class="column column-left">
             <h2>READING PASSAGE 1</h2>
             <div class="instructions">
@@ -297,48 +296,78 @@ h2 {
             <div class="question-block">
                 <p><strong>Questions 1–5</strong><br>
                 Do the following statements agree with the information given in Reading Passage 1?<br>
-                Write <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong></p>
+                Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong></p>
 
-                <p><strong>1</strong> The Romans' shipbuilding skills were passed on to the Greeks and the Egyptians.<br>
-                <span class="true-false-options">
-                    <label><input type="radio" name="q1" value="TRUE"> TRUE</label>
-                    <label><input type="radio" name="q1" value="FALSE"> FALSE</label>
-                    <label><input type="radio" name="q1" value="NOT GIVEN"> NOT GIVEN</label>
-                </span></p>
+                <p><strong>1</strong> The Romans' shipbuilding skills were passed on to the Greeks and the Egyptians.</p>
+                <div class="tfng-options">
+                    <label class="tfng-option">
+                        <input type="radio" name="q1" value="TRUE"> TRUE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q1" value="FALSE"> FALSE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q1" value="NOT GIVEN"> NOT GIVEN
+                    </label>
+                </div>
 
-                <p><strong>2</strong> Skilled craftsmen were needed for the mortise and tenon method of fixing planks.<br>
-                <span class="true-false-options">
-                    <label><input type="radio" name="q2" value="TRUE"> TRUE</label>
-                    <label><input type="radio" name="q2" value="FALSE"> FALSE</label>
-                    <label><input type="radio" name="q2" value="NOT GIVEN"> NOT GIVEN</label>
-                </span></p>
+                <p><strong>2</strong> Skilled craftsmen were needed for the mortise and tenon method of fixing planks.</p>
+                <div class="tfng-options">
+                    <label class="tfng-option">
+                        <input type="radio" name="q2" value="TRUE"> TRUE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q2" value="FALSE"> FALSE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q2" value="NOT GIVEN"> NOT GIVEN
+                    </label>
+                </div>
 
-                <p><strong>3</strong> The later practice used by Mediterranean shipbuilders involved building the hull before the frame.<br>
-                <span class="true-false-options">
-                    <label><input type="radio" name="q3" value="TRUE"> TRUE</label>
-                    <label><input type="radio" name="q3" value="FALSE"> FALSE</label>
-                    <label><input type="radio" name="q3" value="NOT GIVEN"> NOT GIVEN</label>
-                </span></p>
+                <p><strong>3</strong> The later practice used by Mediterranean shipbuilders involved building the hull before the frame.</p>
+                <div class="tfng-options">
+                    <label class="tfng-option">
+                        <input type="radio" name="q3" value="TRUE"> TRUE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q3" value="FALSE"> FALSE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q3" value="NOT GIVEN"> NOT GIVEN
+                    </label>
+                </div>
 
-                <p><strong>4</strong> The Romans called the Mediterranean Sea Mare Nostrum because they dominated its use.<br>
-                <span class="true-false-options">
-                    <label><input type="radio" name="q4" value="TRUE"> TRUE</label>
-                    <label><input type="radio" name="q4" value="FALSE"> FALSE</label>
-                    <label><input type="radio" name="q4" value="NOT GIVEN"> NOT GIVEN</label>
-                </span></p>
+                <p><strong>4</strong> The Romans called the Mediterranean Sea Mare Nostrum because they dominated its use.</p>
+                <div class="tfng-options">
+                    <label class="tfng-option">
+                        <input type="radio" name="q4" value="TRUE"> TRUE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q4" value="FALSE"> FALSE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q4" value="NOT GIVEN"> NOT GIVEN
+                    </label>
+                </div>
 
-                <p><strong>5</strong> Most rowers on ships were people from the Roman army.<br>
-                <span class="true-false-options">
-                    <label><input type="radio" name="q5" value="TRUE"> TRUE</label>
-                    <label><input type="radio" name="q5" value="FALSE"> FALSE</label>
-                    <label><input type="radio" name="q5" value="NOT GIVEN"> NOT GIVEN</label>
-                </span></p>
+                <p><strong>5</strong> Most rowers on ships were people from the Roman army.</p>
+                <div class="tfng-options">
+                    <label class="tfng-option">
+                        <input type="radio" name="q5" value="TRUE"> TRUE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q5" value="FALSE"> FALSE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q5" value="NOT GIVEN"> NOT GIVEN
+                    </label>
+                </div>
             </div>
 
             <div class="question-block">
                 <p><strong>Questions 6–13</strong><br>
                 Complete the summary below.<br>
-                Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.</p>
+                Write <strong>ONE WORD ONLY</strong> from the passage for each answer.</p>
 
                 <p><strong>Warships and merchant ships</strong></p>
 
@@ -349,18 +378,12 @@ h2 {
                 <p>Quantities of agricultural goods such as <strong>12</strong> <input type="text" class="answer-input" id="q12"> were transported by merchant ships to two main ports in Italy. The ships were pulled to the shore by <strong>13</strong> <input type="text" class="answer-input" id="q13">.</p>
             </div>
 
-            <div class="result-box" id="resultBox">
-                <div class="result-summary">Your Result: <span id="scoreText"></span></div>
-                <div id="resultDetails"></div>
-            </div>
-
             <div id="saveNote" class="save-note">✓ Answers saved automatically</div>
         </div>
     </div>
 
     <div class="nav-buttons">
         <a href="reading-intro.html" class="btn">Previous</a>
-        <button class="btn btn-submit" onclick="checkAnswers()">Check Answers</button>
         <button class="btn btn-export" onclick="exportAllAnswers()">Save All Answers</button>
         <a href="reading-passage2.html" class="btn">Next</a>
     </div>
@@ -399,7 +422,7 @@ function updateTimer() {
     if (remaining <= 0) {
         document.getElementById('timer').textContent = "00:00";
         if (!sessionStorage.getItem('timeUpAlerted')) {
-            alert("Time is up! You can still review your answers.");
+            alert("Time is up! You can still review your answers and save them.");
             sessionStorage.setItem('timeUpAlerted', 'true');
         }
         return;
@@ -431,7 +454,6 @@ textInputs.forEach(input => {
     });
 });
 
-// Saves answers with clear labeling
 function saveAllAnswers() {
     for (let i = 1; i <= 13; i++) {
         const radio = document.querySelector(`input[name="q${i}"]:checked`);
@@ -460,51 +482,8 @@ function loadSavedAnswers() {
 window.addEventListener('load', loadSavedAnswers);
 </script>
 
-<!-- Answer Checking -->
-<script>
-const correctAnswers = {
-    1: "FALSE",
-    2: "NOT GIVEN",
-    3: "FALSE",
-    4: "TRUE",
-    5: "TRUE",
-    6: "lightweight",
-    7: "bronze",
-    8: "levels",
-    9: "hull",
-    10: "triangular",
-    11: "music",
-    12: "grain",
-    13: "towboats"
-};
-
-function checkAnswers() {
-    let score = 0;
-    let detailsHTML = '';
-
-    for (let i = 1; i <= 13; i++) {
-        let userAns = '';
-        const radio = document.querySelector(`input[name="q${i}"]:checked`);
-        const text = document.getElementById(`q${i}`);
-        
-        if (radio) userAns = radio.value.trim().toUpperCase();
-        if (text) userAns = text.value.trim().toLowerCase();
-
-        if (userAns === correctAnswers[i].toLowerCase()) {
-            score++;
-            detailsHTML += `<div class="result-item">Question ${i}: <span class="correct">✓ Correct</span></div>`;
-        } else {
-            detailsHTML += `<div class="result-item">Question ${i}: <span class="wrong">✗ Incorrect</span></div>`;
-        }
-    }
-
-    document.getElementById('scoreText').textContent = `${score} / 13`;
-    document.getElementById('resultDetails').innerHTML = detailsHTML;
-    document.getElementById('resultBox').style.display = 'block';
-    document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth' });
-}
-
 <!-- Export All Answers Function -->
+<script>
 function exportAllAnswers() {
     let output = "=== IELTS TEST ANSWERS ===\n\n";
 
@@ -517,15 +496,11 @@ function exportAllAnswers() {
 
     // --- READING ANSWERS ---
     output += "\n--- READING SECTION ---\n";
-    // Passage 1
     output += "Passage 1:\n";
     for (let i = 1; i <= 13; i++) {
         const ans = localStorage.getItem(`READING_P1_Q${i}`) || "No answer";
         output += `Q${i}: ${ans}\n`;
     }
-    // We'll add Passage 2 & 3 here later when we make them
-
-    output += "\n--- WRITING SECTION ---\n(Will be added when completed)\n";
 
     // Create downloadable file
     const blob = new Blob([output], {type: 'text/plain'});
@@ -538,7 +513,7 @@ function exportAllAnswers() {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 
-    alert("All answers saved! You can send this file for checking.");
+    alert("All answers saved successfully! You can now send this file for checking.");
 }
 </script>
 
