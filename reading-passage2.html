@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IELTS Reading - Passage 2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    padding: 15px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.logo {
+    text-align: center;
+    padding: 10px 0;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+
+.logo img {
+    height: 120px;
+    object-fit: contain;
+}
+
+.section-header {
+    background-color: #1f3a5f;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.timer-container {
+    background: #fff3cd;
+    color: #856404;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    height: calc(100vh - 280px);
+    min-height: 500px;
+}
+
+.column {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.column-left {
+    background: #fdfdfd;
+}
+
+.column-right {
+    background: #ffffff;
+}
+
+h2 {
+    color: #1f3a5f;
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.instructions {
+    background-color: #f8fbfe;
+    border-left: 3px solid #1f3a5f;
+    padding: 12px;
+    margin-bottom: 18px;
+    line-height: 1.5;
+    font-size: 13px;
+}
+
+.passage-text {
+    line-height: 1.7;
+    font-size: 14px;
+    text-align: justify;
+    user-select: text;
+}
+
+.passage-text h3 {
+    color: #1f3a5f;
+    margin: 15px 0 10px 0;
+    font-size: 16px;
+    text-align: center;
+}
+
+.passage-text p {
+    margin-bottom: 12px;
+}
+
+.highlight {
+    background-color: #fff350;
+    color: #000;
+}
+
+.question-block {
+    margin-bottom: 22px;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Multiple choice style matching official exam */
+.mc-options {
+    margin: 10px 0 15px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mc-option {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+    line-height: 1.5;
+}
+
+.mc-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    margin-top: 2px;
+    accent-color: #1f3a5f;
+    cursor: pointer;
+}
+
+.answer-input {
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid #333;
+    min-width: 120px;
+    padding: 3px 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f3a5f;
+    outline: none;
+}
+
+.answer-input:focus {
+    border-bottom: 2px solid #1f3a5f;
+    background-color: #f8fbfe;
+}
+
+.save-note {
+    margin-top: 10px;
+    color: #28a745;
+    font-size: 12px;
+    text-align: center;
+    display: none;
+}
+
+.nav-buttons {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-top: 1px solid #eee;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #1f3a5f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #2e568c;
+}
+
+.btn-export {
+    background: #28a745;
+}
+
+.btn-export:hover {
+    background: #1e7e34;
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+    .column {
+        max-height: 400px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">
+        <img src="ielts-logo.png" alt="IELTS Logo">
+    </div>
+
+    <div class="section-header">
+        <span>Reading | Passage 2</span>
+        <div class="timer-container">Time Remaining: <span id="timer">60:00</span></div>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- LEFT COLUMN: READING PASSAGE -->
+        <div class="column column-left">
+            <h2>READING PASSAGE 2</h2>
+            <div class="instructions">
+                <strong>You should spend about 20 minutes on Questions 14–26, which are based on Reading Passage 2 below.</strong><br>
+                <strong>Tip:</strong> Select any text to highlight it.
+            </div>
+
+            <div class="passage-text" id="passageArea">
+                <h3>Climate change reveals ancient artefacts in Norway’s glaciers</h3>
+
+                <p><strong>A</strong> Well above the treeline in Norway’s highest mountains, ancient fields of ice are shrinking as Earth’s climate warms. As the ice has vanished, it has been giving up the treasures it has preserved in cold storage for the last 6,000 years – items such as ancient arrows and skis from Viking Age traders. And those artefacts have provided archaeologists with some surprising insights into how ancient Norwegians made their livings.</p>
+
+                <p><strong>B</strong> Organic materials like textiles and hides are relatively rare finds at archaeological sites. This is because unless they’re protected from the microorganisms that cause decay, they tend not to last long. Extreme cold is one reliable way to keep artefacts relatively fresh for a few thousand years, but once thawed out, these materials experience degradation relatively swiftly.</p>
+
+                <p>With climate change shrinking ice cover around the world, glacial archaeologists need to race the clock to find newly revealed artefacts, preserve them, and study them. If something fragile dries and is windblown it might very soon be lost to science, or an arrow might be exposed and then covered again by the next snow and remain well-preserved. The unpredictability means that glacial archaeologists have to be systematic in their approach to fieldwork.</p>
+
+                <p><strong>C</strong> Over a nine-year period, a team of archaeologists, which included Lars Pilø of Oppland County Council, Norway, and James Barrett of the McDonald Institute for Archaeological Research, surveyed patches of ice in Oppland, an area of south-central Norway that is home to some of the country’s highest mountains. Reindeer once congregated on these icy patches in the later summer months to escape biting insects, and from the late Stone Age, hunters followed. In addition, trade routes threaded through the mountain passes of Oppland, linking settlements in Norway to the rest of Europe.</p>
+
+                <p>The slow but steady movement of glaciers tends to destroy anything at their bases, so the team focused on stationary patches of ice, mostly above 1,400 metres. That ice is found amid fields of frost-weathered boulders, fallen rocks, and exposed bedrock that for nine months of the year is buried beneath snow.</p>
+
+                <p>‘Fieldwork is hard work – hiking with all our equipment, often camping on permafrost – but very rewarding. You’re rescuing the archaeology, bringing the melting ice to wider attention, discovering a unique environmental history and really connecting with the natural environment,’ says Barrett.</p>
+
+                <p><strong>D</strong> At the edges of the contracting ice patches, archaeologists found more than 2,000 artefacts, which formed a material record that ran from 4,000 BCE to the beginnings of the Renaissance in the 14th century. Many of the artefacts are associated with hunting. Hunters would have easily misplaced arrows and they often discarded broken bows rather than take them all the way home. Other items could have been used by hunters traversing the high mountain passes of Oppland: skis, walking sticks, and horse harness remains, among other objects.</p>
+
+                <p>Artefacts dating from the late Stone Age to the Bronze Age were relatively rare, which suggests there were fewer people travelling into the mountains at this time. However, finds from the Iron Age onwards became more common, despite a period of extreme cold between around 300 and 600 CE. ‘The fact that there are artefacts dating to this period tells us that people were still using the mountains, even when conditions were harsher,’ says Pilø.</p>
+
+                <p><strong>E</strong> Radiocarbon dating was used to determine the age of many of the finds. This confirmed that the greatest number of artefacts date from the Viking Age (around 750 to 1050 CE). This was a period of growing trade across Europe, and the mountain passes provided a shorter route between eastern Norway and the west coast, allowing traders to avoid long sea journeys around the southern tip of the country.</p>
+
+                <p><strong>F</strong> Remarkably, though, the finds from the ice may have continued through this period, perhaps suggesting that the importance of mountain hunting increased to supplement failing agricultural harvests in times of low temperatures. As trade developed, the demand for goods such as antlers and furs rose, providing hunters with an additional source of income.</p>
+
+                <p><strong>G</strong> The artefacts found in Oppland provide evidence that mountain passes were not only used by hunters but also formed an important part of the wider transport network. Although ships were vital for long-distance travel, they were not always practical. Land routes through the mountains allowed goods to be moved between inland settlements and the coast more directly. The passes remained in use for many centuries, gradually declining as roads were built at lower elevations.</p>
+
+                <p><strong>H</strong> Today, as temperatures continue to rise, more ice is melting and more artefacts are being revealed. This presents archaeologists with both an opportunity and a challenge. There is still much to be discovered from the melting ice, but unless action is taken to locate and preserve these finds quickly, much of this unique history will be lost forever.</p>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: QUESTIONS -->
+        <div class="column column-right">
+            <h2>QUESTIONS</h2>
+
+            <div class="question-block">
+                <p><strong>Questions 14–19</strong><br>
+                Reading Passage 2 has eight paragraphs, <strong>A–H</strong>.<br>
+                Which paragraph contains the following information?<br>
+                Write the correct letter, <strong>A–H</strong>, in boxes <strong>14–19</strong> on your answer sheet.</p>
+
+                <p><strong>14</strong> an explanation for weapons being left behind in the mountains<br>
+                <input type="text" class="answer-input" id="q14" maxlength="1"></p>
+
+                <p><strong>15</strong> a reference to the physical difficulties involved in archaeological work<br>
+                <input type="text" class="answer-input" id="q15" maxlength="1"></p>
+
+                <p><strong>16</strong> a suggestion that mountain hunting became more important when crops failed<br>
+                <input type="text" class="answer-input" id="q16" maxlength="1"></p>
+
+                <p><strong>17</strong> an example of how climate conditions help preserve ancient objects<br>
+                <input type="text" class="answer-input" id="q17" maxlength="1"></p>
+
+                <p><strong>18</strong> a reason why archaeologists focused their search on certain areas of ice<br>
+                <input type="text" class="answer-input" id="q18" maxlength="1"></p>
+
+                <p><strong>19</strong> a statement about the risk of artefacts being damaged once exposed<br>
+                <input type="text" class="answer-input" id="q19" maxlength="1"></p>
+            </div>
+
+            <div class="question-block">
+                <p><strong>Questions 20–22</strong><br>
+                Complete the sentences below.<br>
+                Choose <strong>ONE WORD ONLY</strong> from the passage for each answer.<br>
+                Write your answers in boxes <strong>20–22</strong> on your answer sheet.</p>
+
+                <p>20. Organic materials usually decay because of <input type="text" class="answer-input" id="q20">.</p>
+                <p>21. In summer, <input type="text" class="answer-input" id="q21"> gathered on the ice to escape insects.</p>
+                <p>22. Ancient people used <input type="text" class="answer-input" id="q22"> as well as ships to transport goods.</p>
+            </div>
+
+            <div class="question-block">
+                <p><strong>Questions 23 and 24</strong><br>
+                Choose <strong>TWO letters</strong>, <strong>A–E</strong>.<br>
+                Write the correct letters in boxes <strong>23 and 24</strong> on your answer sheet.<br>
+                <br>
+                Which TWO of the following statements does the writer make about the discoveries of Barrett’s team?</p>
+
+                <div class="mc-options">
+                    <label class="mc-option">
+                        <input type="checkbox" name="q2324" value="A">
+                        A Artefacts found in the higher mountain passes were limited to skiing equipment.
+                    </label>
+                    <label class="mc-option">
+                        <input type="checkbox" name="q2324" value="B">
+                        B Hunters went into the mountains even during periods of extreme cold.
+                    </label>
+                    <label class="mc-option">
+                        <input type="checkbox" name="q2324" value="C">
+                        C The number of artefacts from certain time periods was relatively low.
+                    </label>
+                    <label class="mc-option">
+                        <input type="checkbox" name="q2324" value="D">
+                        D Radiocarbon dating of artefacts produced some unreliable results.
+                    </label>
+                    <label class="mc-option">
+                        <input type="checkbox" name="q2324" value="E">
+                        E More artefacts were found in Oppland than at any other mountain site.
+                    </label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p><strong>Questions 25 and 26</strong><br>
+                Choose <strong>TWO letters</strong>, <strong>A–E</strong>.<br>
+                Write the correct letters in boxes <strong>25 and 26</strong> on your answer sheet.<br>
+                <br>
+                Which TWO of the following statements does the writer make about the Viking Age?</p>
+
+                <div class="mc-options">
+                    <label class="mc-option">
+                        <input type="checkbox" name="q2526" value="A">
+                        A Hunters at this time benefited from an increased demand for goods.
+                    </label>
+                    <label class="mc-option">
+                        <input type="checkbox" name="q2526" value="B">
+                        B The beginning of the period saw the greatest growth in the wealth of Vikings.
+                    </label>
+                    <label class="mc-option">
+                        <input type="checkbox" name="q2526" value="C">
+                        C Vikings did not rely on ships alone to transport goods.
+                    </label>
+                    <label class="mc-option">
+                        <input type="checkbox" name="q2526" value="D">
+                        D Norwegian towns at this time attracted traders from around the world.
+                    </label>
+                    <label class="mc-option">
+                        <input type="checkbox" name="q2526" value="E">
+                        E Vikings were primarily interested in their trading links with the Middle East.
+                    </label>
+                </div>
+            </div>
+
+            <div id="saveNote" class="save-note">✓ Answers saved automatically</div>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="reading-passage1.html" class="btn">Previous</a>
+        <button class="btn btn-export" onclick="exportAllAnswers()">Save All Answers</button>
+        <a href="reading-passage3.html" class="btn">Next</a>
+    </div>
+</div>
+
+<!-- Highlight Function -->
+<script>
+document.getElementById('passageArea').addEventListener('mouseup', function() {
+    let selection = window.getSelection();
+    if (selection.toString().trim() !== '') {
+        let span = document.createElement('span');
+        span.className = 'highlight';
+        span.textContent = selection.toString();
+        let range = selection.getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(span);
+        selection.removeAllRanges();
+    }
+});
+</script>
+
+<!-- Timer -->
+<script>
+function updateTimer() {
+    const totalTime = 60 * 60 * 1000;
+    const startTime = localStorage.getItem('readingStartTime');
+
+    if (!startTime) {
+        document.getElementById('timer').textContent = "60:00";
+        return;
+    }
+
+    const elapsed = Date.now() - parseInt(startTime);
+    const remaining = totalTime - elapsed;
+
+    if (remaining <= 0) {
+        document.getElementById('timer').textContent = "00:00";
+        if (!sessionStorage.getItem('timeUpAlerted')) {
+            alert("Time is up! You can still review your answers and save them.");
+            sessionStorage.setItem('timeUpAlerted', 'true');
+        }
+        return;
+    }
+
+    const minutes = Math.floor(remaining / 60000);
+    const seconds = Math.floor((remaining % 60000) / 1000);
+    document.getElementById('timer').textContent = 
+        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+</script>
+
+<!-- Save & Load Answers -->
+<script>
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const textInputs = document.querySelectorAll('.answer-input');
+
+checkboxes.forEach(input => {
+    input.addEventListener('change', saveAllAnswers);
+});
+
+textInputs.forEach(input => {
+    input.addEventListener('input', function() {
+        this.value = this.value.trim().toUpperCase();
+        saveAllAnswers();
+    });
+});
+
+function saveAllAnswers() {
+    // Save text answers
+    for (let i = 14; i <= 22; i++) {
+        const text = document.getElementById(`q${i}`);
+        if (text) localStorage.setItem(`READING_P2_Q${i}`, text.value.trim());
+    }
+
+    // Save multiple-choice two-answer questions
+    const q2324Answers = Array.from(document.querySelectorAll('input[name="q2324"]:checked')).map(el => el.value).sort().join(', ');
+    localStorage.setItem(`READING_P2_Q2324`, q2324Answers);
+
+    const q2526Answers = Array.from(document.querySelectorAll('input[name="q2526"]:checked')).map(el => el.value).sort().join(', ');
+    localStorage.setItem(`READING_P2_Q2526`, q2526Answers);
+
+    saveNote.style.display = 'block';
+    clearTimeout(window.saveTimer);
+    window.saveTimer = setTimeout(() => saveNote.style.display = 'none', 1200);
+}
+
+function loadSavedAnswers() {
+    for (let i = 14; i <= 22; i++) {
+        const val = localStorage.getItem(`READING_P2_Q${i}`);
+        const text = document.getElementById(`q${i}`);
+        if (val && text) text.value = val;
+    }
+
+    const saved2324 = localStorage.getItem(`READING_P2_Q2324`);
+    if (saved2324) {
+        const values = saved2324.split(', ');
+        document.querySelectorAll('input[name="q2324"]').forEach(el => {
+            el.checked = values.includes(el.value);
+        });
+    }
+
+    const saved2526 = localStorage.getItem(`READING_P2_Q2526`);
+    if (saved2526) {
+        const values = saved2526.split(', ');
+        document.querySelectorAll('input[name="q2526"]').forEach(el => {
+            el.checked = values.includes(el.value);
+        });
+    }
+}
+
+window.addEventListener('load', loadSavedAnswers);
+</script>
+
+<!-- Export All Answers Function -->
+<script>
+function exportAllAnswers() {
+    let output = "=== IELTS TEST ANSWERS ===\n\n";
+
+    // --- LISTENING ANSWERS ---
+    output += "--- LISTENING SECTION ---\n";
+    for (let i = 1; i <= 40; i++) {
+        const ans = localStorage.getItem(`listening_part${Math.ceil(i/10)}_ans${i}`) || "No answer";
+        output += `Q${i}: ${ans}\n`;
+    }
+
+    // --- READING ANSWERS ---
+    output += "\n--- READING SECTION ---\n";
+    
+    output += "\nPassage 1:\n";
+    for (let i = 1; i <= 13; i++) {
+        const ans = localStorage.getItem(`READING_P1_Q${i}`) || "No answer";
+        output += `Q${i}: ${ans}\n`;
+    }
+
+    output += "\nPassage 2:\n";
+    for (let i = 14; i <= 22; i++) {
+        const ans = localStorage.getItem(`READING_P2_Q${i}`) || "No answer";
+        output += `Q${i}: ${ans}\n`;
+    }
+    const ans2324 = localStorage.getItem(`READING_P2_Q2324`) || "No answer";
+    output += `Q23 & 24: ${ans2324}\n`;
+    const ans2526 = localStorage.getItem(`READING_P2_Q2526`) || "No answer";
+    output += `Q25 & 26: ${ans2526}\n`;
+
+    // --- PASSAGE 3 PLACEHOLDER ---
+    output += "\nPassage 3: No answers submitted yet\n";
+
+    // Create downloadable file
+    const blob = new Blob([output], {type: 'text/plain'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `ielts_answers_${new Date().toISOString().slice(0,10)}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    alert("All answers saved successfully! You can now send this file for checking.");
+}
+</script>
+
+</body>
+</html>
