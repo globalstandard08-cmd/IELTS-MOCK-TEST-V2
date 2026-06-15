@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IELTS Reading - Passage 3</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    padding: 15px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.logo {
+    text-align: center;
+    padding: 10px 0;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+
+.logo img {
+    height: 120px;
+    object-fit: contain;
+}
+
+.section-header {
+    background-color: #1f3a5f;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.timer-container {
+    background: #fff3cd;
+    color: #856404;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    height: calc(100vh - 280px);
+    min-height: 500px;
+}
+
+.column {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.column-left {
+    background: #fdfdfd;
+}
+
+.column-right {
+    background: #ffffff;
+}
+
+h2 {
+    color: #1f3a5f;
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.instructions {
+    background-color: #f8fbfe;
+    border-left: 3px solid #1f3a5f;
+    padding: 12px;
+    margin-bottom: 18px;
+    line-height: 1.5;
+    font-size: 13px;
+}
+
+.passage-text {
+    line-height: 1.7;
+    font-size: 14px;
+    text-align: justify;
+    user-select: text;
+}
+
+.passage-text h3 {
+    color: #1f3a5f;
+    margin: 15px 0 10px 0;
+    font-size: 16px;
+    text-align: center;
+}
+
+.passage-text p {
+    margin-bottom: 12px;
+}
+
+.section-label {
+    font-weight: bold;
+    color: #1f3a5f;
+    margin: 18px 0 8px 0;
+    font-size: 15px;
+}
+
+.highlight {
+    background-color: #fff350;
+    color: #000;
+}
+
+.question-block {
+    margin-bottom: 22px;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* True/False/Not Given styling matching official exam */
+.tfng-options {
+    margin: 10px 0 15px 0;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.tfng-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+}
+
+.tfng-option input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+    background: white;
+    transition: all 0.2s;
+}
+
+.tfng-option input[type="radio"]:checked {
+    border-color: #1f3a5f;
+    background: #1f3a5f;
+}
+
+.tfng-option input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+}
+
+.tfng-option:hover input[type="radio"] {
+    border-color: #1f3a5f;
+}
+
+/* Text input styling for matching and short answer */
+.answer-input {
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid #333;
+    min-width: 60px;
+    max-width: 120px;
+    padding: 3px 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f3a5f;
+    outline: none;
+    text-transform: uppercase;
+}
+
+.answer-input:focus {
+    border-bottom: 2px solid #1f3a5f;
+    background-color: #f8fbfe;
+}
+
+.save-note {
+    margin-top: 10px;
+    color: #28a745;
+    font-size: 12px;
+    text-align: center;
+    display: none;
+}
+
+.nav-buttons {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-top: 1px solid #eee;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #1f3a5f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #2e568c;
+}
+
+.btn-export {
+    background: #28a745;
+}
+
+.btn-export:hover {
+    background: #1e7e34;
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+    .column {
+        max-height: 400px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">
+        <img src="ielts-logo.png" alt="IELTS Logo">
+    </div>
+
+    <div class="section-header">
+        <span>Reading | Passage 3</span>
+        <div class="timer-container">Time Remaining: <span id="timer">60:00</span></div>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- LEFT COLUMN: READING PASSAGE -->
+        <div class="column column-left">
+            <h2>READING PASSAGE 3</h2>
+            <div class="instructions">
+                <strong>You should spend about 20 minutes on Questions 27–40, which are based on Reading Passage 3 below.</strong>
+            </div>
+
+            <div class="passage-text" id="passageArea">
+                <h3>Plant 'thermometer' triggers springtime growth by measuring night-time heat</h3>
+
+                <p>A photoreceptor molecule in plant cells has been found to have a second job as a thermometer after dark - allowing plants to read seasonal temperature changes. Scientists say the discovery could help breed crops that are more resilient to the temperatures expected to result from climate change</p>
+
+                <p class="section-label">A</p>
+                <p>An international team of scientists led by the University of Cambridge has discovered that the 'thermometer' molecule in plants enables them to develop according to seasonal temperature changes. Researchers have revealed that molecules called phytochromes - used by plants to detect light during the day - actually change their function in darkness to become cellular temperature gauges that measure the heat of the night.</p>
+                <p>The new findings, published in the journal Science, show that phytochromes control genetic switches in response to temperature as well as light to dictate plant development.</p>
+
+                <p class="section-label">B</p>
+                <p>At night, these molecules change states, and the pace at which they change is 'directly proportional to temperature', say scientists, who compare phytochromes to mercury in a thermometer. The warmer it is, the faster the molecular change - stimulating plant growth.</p>
+
+                <p class="section-label">C</p>
+                <p>Farmers and gardeners have known for hundreds of years how responsive plants are to temperature: warm winters cause many trees and flowers to bud early, something humans have long used to predict weather and harvest times for the coming year. The latest research pinpoints for the first time a molecular mechanism in plants that reacts to temperature - often triggering the buds of spring we long to see at the end of winter.</p>
+
+                <p class="section-label">D</p>
+                <p>With weather and temperatures set to become ever more unpredictable due to climate change, researchers say the discovery that this light-sensing molecule also functions as the internal thermometer in plant cells could help us breed tougher crops. 'It is estimated that agricultural yields will need to double by 2050, but climate change is a major threat to achieving this. Key crops such as wheat and rice are sensitive to high temperatures. Thermal stress reduces crop yields by around 10% for every one degree increase in temperature,' says lead researcher Dr Philip Wigge from Cambridge's Sainsbury Laboratory. 'Discovering the molecules that allow plants to sense temperature has the potential to accelerate the breeding of crops resilient to thermal stress and climate change.'</p>
+
+                <p class="section-label">E</p>
+                <p>In their active state, phytochrome molecules bind themselves to DNA to restrict plant growth. During the day, sunlight activates the molecules, slowing down growth. If a plant finds itself in shade, phytochromes are quickly inactivated - enabling it to grow faster to find sunlight again. This is how plants compete to escape each other's shade. 'Light-driven changes to phytochrome activity occur very fast, in less than a second,' says Wigge.</p>
+                <p>At night, however, it's a different story. Instead of a rapid deactivation following sundown, the molecules gradually change from their active to inactive state. This is called 'dark reversion'. 'Just as mercury rises in a thermometer, the rate at which phytochromes revert to their inactive state during the night is a direct measure of temperature,' says Wigge.</p>
+
+                <p class="section-label">F</p>
+                <p>'The lower the temperature, the slower the rate at which phytochromes revert to inactivity, so the molecules spend more time in their active, growth-suppressing state. This is why plants are slower to grow in winter. Warm temperatures accelerate dark reversion, so that phytochromes rapidly reach an inactive state and detach themselves from the plant's DNA - allowing genes to be expressed and plant growth to resume.' Wigge believes phytochrome thermo-sensing evolved at a later stage, and co-opted the biological network already used for light-based growth during the downtime of night.</p>
+
+                <p class="section-label">G</p>
+                <p>Some plants mainly use day length as an indicator of the season. Other species, such as daffodils, have considerable temperature sensitivity, and can flower months in advance during a warm winter. In fact, the discovery of the dual role of phytochromes provides the science behind a well-known rhyme long used to predict the coming season: oak before ash we'll have a splash, ash before oak we're in for a soak.</p>
+                <p>Wigge explains: 'Oak trees rely much more on temperature, likely using phytochromes as thermometers to dictate development, whereas ash trees rely on measuring day length to determine their seasonal timing. A warmer spring, and consequently a higher likeliness of a hot summer, will result in oak leafing before ash. A cold spring will see the opposite. As the British know only too well, a colder summer is likely to be a rain-soaked one.'</p>
+
+                <p class="section-label">H</p>
+                <p>The new findings are the culmination of twelve years of research involving scientists from Germany, Argentina and the US, as well as the Cambridge team. The work was done in a model system, using a mustard plant called Arabidopsis, but Wigge says the phytochrome genes necessary for temperature sensing are found in crop plants as well. 'Recent advances in plant genetics now mean that scientists are able to rapidly identify the genes controlling these processes in crop plants, and even alter their activity using precise molecular "scalpels",' adds Wigge. 'Cambridge is uniquely well-positioned to do this kind of research as we have outstanding collaborators nearby who work on more applied aspects of plant biology, and can help us transfer this new knowledge into the field.'</p>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: QUESTIONS -->
+        <div class="column column-right">
+            <h2>QUESTIONS</h2>
+
+            <div class="question-block">
+                <p><strong>Questions 27–32</strong><br>
+                Do the following statements agree with the information given in Reading Passage 3?<br>
+                Write <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong></p>
+
+                <p><strong>27</strong> The Cambridge scientists' discovery of the 'thermometer molecule' caused surprise among other scientists.</p>
+                <div class="tfng-options">
+                    <label class="tfng-option">
+                        <input type="radio" name="q27" value="TRUE"> TRUE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q27" value="FALSE"> FALSE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q27" value="NOT GIVEN"> NOT GIVEN
+                    </label>
+                </div>
+
+                <p><strong>28</strong> The target for agricultural production by 2050 could be missed.</p>
+                <div class="tfng-options">
+                    <label class="tfng-option">
+                        <input type="radio" name="q28" value="TRUE"> TRUE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q28" value="FALSE"> FALSE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q28" value="NOT GIVEN"> NOT GIVEN
+                    </label>
+                </div>
+
+                <p><strong>29</strong> Wheat and rice suffer from a rise in temperatures.</p>
+                <div class="tfng-options">
+                    <label class="tfng-option">
+                        <input type="radio" name="q29" value="TRUE"> TRUE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q29" value="FALSE"> FALSE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q29" value="NOT GIVEN"> NOT GIVEN
+                    </label>
+                </div>
+
+                <p><strong>30</strong> It may be possible to develop crops that require less water.</p>
+                <div class="tfng-options">
+                    <label class="tfng-option">
+                        <input type="radio" name="q30" value="TRUE"> TRUE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q30" value="FALSE"> FALSE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q30" value="NOT GIVEN"> NOT GIVEN
+                    </label>
+                </div>
+
+                <p><strong>31</strong> Plants grow faster in sunlight than in shade.</p>
+                <div class="tfng-options">
+                    <label class="tfng-option">
+                        <input type="radio" name="q31" value="TRUE"> TRUE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q31" value="FALSE"> FALSE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q31" value="NOT GIVEN"> NOT GIVEN
+                    </label>
+                </div>
+
+                <p><strong>32</strong> Phytochromes change their state at the same speed day and night.</p>
+                <div class="tfng-options">
+                    <label class="tfng-option">
+                        <input type="radio" name="q32" value="TRUE"> TRUE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q32" value="FALSE"> FALSE
+                    </label>
+                    <label class="tfng-option">
+                        <input type="radio" name="q32" value="NOT GIVEN"> NOT GIVEN
+                    </label>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <p><strong>Questions 33–37</strong><br>
+                Reading Passage 3 has eight sections, <strong>A–H</strong>.<br>
+                Which section contains the following information?<br>
+                Write the correct letter, <strong>A–H</strong>, for each answer.</p>
+
+                <p><strong>33</strong> mention of specialists who can make use of the research findings <input type="text" class="answer-input" id="q33" maxlength="1"></p>
+                <p><strong>34</strong> a reference to a potential benefit of the research findings <input type="text" class="answer-input" id="q34" maxlength="1"></p>
+                <p><strong>35</strong> scientific support for a traditional saying <input type="text" class="answer-input" id="q35" maxlength="1"></p>
+                <p><strong>36</strong> a reference to people traditionally making plans based on plant behaviour <input type="text" class="answer-input" id="q36" maxlength="1"></p>
+                <p><strong>37</strong> a reference to where the research has been reported <input type="text" class="answer-input" id="q37" maxlength="1"></p>
+            </div>
+
+            <div id="saveNote" class="save-note">✓ Answers saved automatically</div>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="reading-passage2.html" class="btn">Previous</a>
+        <button class="btn btn-export" onclick="exportAllAnswers()">Save All Answers</button>
+        <a href="writing-intro.html" class="btn">Next</a>
+    </div>
+</div>
+
+<!-- Highlight Function -->
+<script>
+document.getElementById('passageArea').addEventListener('mouseup', function() {
+    let selection = window.getSelection();
+    if (selection.toString().trim() !== '') {
+        let span = document.createElement('span');
+        span.className = 'highlight';
+        span.textContent = selection.toString();
+        let range = selection.getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(span);
+        selection.removeAllRanges();
+    }
+});
+</script>
+
+<!-- Timer -->
+<script>
+function updateTimer() {
+    const totalTime = 60 * 60 * 1000;
+    const startTime = localStorage.getItem('readingStartTime');
+
+    if (!startTime) {
+        document.getElementById('timer').textContent = "60:00";
+        return;
+    }
+
+    const elapsed = Date.now() - parseInt(startTime);
+    const remaining = totalTime - elapsed;
+
+    if (remaining <= 0) {
+        document.getElementById('timer').textContent = "00:00";
+        if (!sessionStorage.getItem('timeUpAlerted')) {
+            alert("Time is up! You can still review your answers and save them.");
+            sessionStorage.setItem('timeUpAlerted', 'true');
+        }
+        return;
+    }
+
+    const minutes = Math.floor(remaining / 60000);
+    const seconds = Math.floor((remaining % 60000) / 1000);
+    document.getElementById('timer').textContent = 
+        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+</script>
+
+<!-- Save & Load Answers -->
+<script>
+const radioInputs = document.querySelectorAll('input[type="radio"]');
+const textInputs = document.querySelectorAll('.answer-input');
+
+radioInputs.forEach(input => {
+    input.addEventListener('change', saveAllAnswers);
+});
+
+textInputs.forEach(input => {
+    input.addEventListener('input', function() {
+        this.value = this.value.trim().toUpperCase().slice(0, 1);
+        saveAllAnswers();
+    });
+});
+
+function saveAllAnswers() {
+    // Save True/False/Not Given answers
+    for (let i = 27; i <= 32; i++) {
+        const radio = document.querySelector(`input[name="q${i}"]:checked`);
+        if (radio) localStorage.setItem(`READING_P3_Q${i}`, radio.value);
+    }
+    // Save section matching answers
+    for (let i = 33; i <= 37; i++) {
+        const text = document.getElementById(`q${i}`);
+        if (text) localStorage.setItem(`READING_P3_Q${i}`, text.value.trim().toUpperCase());
+    }
+    saveNote.style.display = 'block';
+    clearTimeout(window.saveTimer);
+    window.saveTimer = setTimeout(() => saveNote.style.display = 'none', 1200);
+}
+
+function loadSavedAnswers() {
+    // Load True/False/Not Given answers
+    for (let i = 27; i <= 32; i++) {
+        const val = localStorage.getItem(`READING_P3_Q${i}`);
+        if (!val) continue;
+        const radio = document.querySelector(`input[name="q${i}"][value="${val.toUpperCase()}"]`);
+        if (radio) radio.checked = true;
+    }
+    // Load section matching answers
+    for (let i = 33; i <= 37; i++) {
+        const val = localStorage.getItem(`READING_P3_Q${i}`);
+        if (!val) continue;
+        const text = document.getElementById(`q${i}`);
+        if (text) text.value = val.toUpperCase();
+    }
+}
+
+window.addEventListener('load', loadSavedAnswers);
+</script>
+
+<!-- Export All Answers Function -->
+<script>
+function exportAllAnswers() {
+    let output = "=== IELTS TEST ANSWERS ===\n\n";
+
+    // --- LISTENING ANSWERS ---
+    output += "--- LISTENING SECTION ---\n";
+    for (let i = 1; i <= 40; i++) {
+        const ans = localStorage.getItem(`listening_part${Math.ceil(i/10)}_ans${i}`) || "No answer";
+        output += `Q${i}: ${ans}\n`;
+    }
+
+    // --- READING ANSWERS ---
+    output += "\n--- READING SECTION ---\n";
+    output += "Passage 1:\n";
+    for (let i = 1; i <= 13; i++) {
+        const ans = localStorage.getItem(`READING_P1_Q${i}`) || "No answer";
+        output += `Q${i}: ${ans}\n`;
+    }
+    output += "\nPassage 2:\n";
+    for (let i = 14; i <= 26; i++) {
+        const ans = localStorage.getItem(`READING_P2_Q${i}`) || "No answer";
+        output += `Q${i}: ${ans}\n`;
+    }
+    output += "\nPassage 3:\n";
+    for (let i = 27; i <= 37; i++) {
+        const ans = localStorage.getItem(`READING_P3_Q${i}`) || "No answer";
+        output += `Q${i}: ${ans}\n`;
+    }
+
+    // Create downloadable file
+    const blob = new Blob([output], {type: 'text/plain'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `ielts_answers_${new Date().toISOString().slice(0,10)}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    alert("All answers saved successfully! You can now send this file for checking.");
+}
+</script>
+
+</body>
+</html>
