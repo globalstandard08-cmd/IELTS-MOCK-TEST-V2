@@ -1,4 +1,165 @@
-<!-- Replace the existing timer script with this -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IELTS Reading - Introduction</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Same styling as your Listening sections -->
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 780px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.logo img {
+    height: 80px;
+    object-fit: contain;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.section-header {
+    background-color: #1f3a5f;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#timer {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+}
+
+h1 {
+    color: #1f3a5f;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.instructions {
+    background-color: #f8fbfe;
+    border-left: 3px solid #1f3a5f;
+    padding: 15px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.instructions ul {
+    margin-left: 20px;
+    margin: 10px 0 10px 25px;
+    padding: 0;
+}
+
+.instructions li {
+    margin-bottom: 8px;
+}
+
+.note {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 5px;
+    padding: 12px;
+    margin: 20px 0;
+    font-size: 13px;
+    color: #856404;
+}
+
+.nav-buttons {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #1f3a5f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #2e568c;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+    <!-- Logo -->
+    <div class="logo">
+        <img src="ielts-logo.png" alt="IELTS Logo">
+    </div>
+
+    <!-- Header + Timer -->
+    <div class="header-row">
+        <div class="section-header">Reading Section</div>
+        <div id="timer">60:00</div>
+    </div>
+
+    <h1>Instructions for the Reading Test</h1>
+
+    <div class="instructions">
+        <p>The Reading test lasts <strong>60 minutes</strong>. There are 40 questions in total.</p>
+        
+        <p><strong>What you need to know:</strong></p>
+        <ul>
+            <li>There are 3 reading passages of increasing difficulty.</li>
+            <li>All answers must be entered directly on the screen.</li>
+            <li>There is <strong>no extra time</strong> at the end to transfer answers.</li>
+            <li>You can change your answers any time before submitting.</li>
+            <li>Each correct answer receives one mark.</li>
+        </ul>
+
+        <p><strong>Task types may include:</strong> Multiple choice, True/False/Not Given, Yes/No/Not Given, matching headings, matching features, sentence completion, summary completion, and short answer questions.</p>
+    </div>
+
+    <div class="note">
+        <strong>Important:</strong> Once you click "Start Reading Test", the timer will begin immediately and cannot be paused. Please ensure you are ready before proceeding.
+    </div>
+
+    <div class="nav-buttons">
+        <button class="btn" onclick="startReadingTest()">Start Reading Test</button>
+    </div>
+</div>
+
+<!-- Timer Script -->
 <script>
 function updateTimer() {
     const totalMinutes = 60;
@@ -17,9 +178,9 @@ function updateTimer() {
 
     if (remaining <= 0) {
         timerEl.textContent = "00:00";
-        if (!sessionStorage.getItem('alerted')) {
-            alert("Time is up! You may still review and submit answers.");
-            sessionStorage.setItem('alerted', 'true');
+        if (!sessionStorage.getItem('alertedReading')) {
+            alert("Time is up! You may still review and submit your answers.");
+            sessionStorage.setItem('alertedReading', 'true');
         }
         return;
     }
@@ -29,7 +190,20 @@ function updateTimer() {
     timerEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 }
 
-// Run immediately and every second
-updateTimer();
-setInterval(updateTimer, 1000);
+function startReadingTest() {
+    // Set start time when user begins
+    localStorage.setItem('readingStartTime', Date.now().toString());
+    sessionStorage.removeItem('alertedReading');
+    updateTimer();
+    // Change this to your actual reading test page
+    window.location.href = "./reading-test.html";
+}
+
+// Start timer logic when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    updateTimer();
+    setInterval(updateTimer, 1000);
+});
 </script>
+</body>
+</html>
