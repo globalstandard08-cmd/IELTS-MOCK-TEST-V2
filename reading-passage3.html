@@ -187,19 +187,18 @@ h2 {
     border-color: #1f3a5f;
 }
 
-/* Text input styling for matching and short answer */
+/* Text input styling */
 .answer-input {
     display: inline-block;
     border: none;
     border-bottom: 1px solid #333;
     min-width: 60px;
-    max-width: 120px;
+    max-width: 220px;
     padding: 3px 5px;
     font-size: 14px;
     font-weight: 500;
     color: #1f3a5f;
     outline: none;
-    text-transform: uppercase;
 }
 
 .answer-input:focus {
@@ -415,6 +414,18 @@ h2 {
                 <p><strong>37</strong> a reference to where the research has been reported <input type="text" class="answer-input" id="q37" maxlength="1"></p>
             </div>
 
+            <!-- Added exactly as provided -->
+            <div class="question-block">
+                <p><strong>Questions 38–40</strong><br>
+                Complete the sentences below.<br>
+                Choose <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.<br>
+                Write your answers in boxes 38-40 on your answer sheet.</p>
+
+                <p><strong>38</strong> Daffodils are likely to flower early in response to ......................................................... weather. <input type="text" class="answer-input" id="q38"></p>
+                <p><strong>39</strong> If ash trees come into leaf before oak trees, the weather in ........................................................ will probably be wet. <input type="text" class="answer-input" id="q39"></p>
+                <p><strong>40</strong> The research was carried out using a particular species of ......................................................... <input type="text" class="answer-input" id="q40"></p>
+            </div>
+
             <div id="saveNote" class="save-note">✓ Answers saved automatically</div>
         </div>
     </div>
@@ -486,7 +497,7 @@ radioInputs.forEach(input => {
 
 textInputs.forEach(input => {
     input.addEventListener('input', function() {
-        this.value = this.value.trim().toUpperCase().slice(0, 1);
+        this.value = this.value.trim();
         saveAllAnswers();
     });
 });
@@ -497,10 +508,10 @@ function saveAllAnswers() {
         const radio = document.querySelector(`input[name="q${i}"]:checked`);
         if (radio) localStorage.setItem(`READING_P3_Q${i}`, radio.value);
     }
-    // Save section matching answers
-    for (let i = 33; i <= 37; i++) {
+    // Save all text answers
+    for (let i = 33; i <= 40; i++) {
         const text = document.getElementById(`q${i}`);
-        if (text) localStorage.setItem(`READING_P3_Q${i}`, text.value.trim().toUpperCase());
+        if (text) localStorage.setItem(`READING_P3_Q${i}`, text.value.trim());
     }
     saveNote.style.display = 'block';
     clearTimeout(window.saveTimer);
@@ -515,12 +526,12 @@ function loadSavedAnswers() {
         const radio = document.querySelector(`input[name="q${i}"][value="${val.toUpperCase()}"]`);
         if (radio) radio.checked = true;
     }
-    // Load section matching answers
-    for (let i = 33; i <= 37; i++) {
+    // Load all text answers
+    for (let i = 33; i <= 40; i++) {
         const val = localStorage.getItem(`READING_P3_Q${i}`);
         if (!val) continue;
         const text = document.getElementById(`q${i}`);
-        if (text) text.value = val.toUpperCase();
+        if (text) text.value = val;
     }
 }
 
@@ -552,7 +563,7 @@ function exportAllAnswers() {
         output += `Q${i}: ${ans}\n`;
     }
     output += "\nPassage 3:\n";
-    for (let i = 27; i <= 37; i++) {
+    for (let i = 27; i <= 40; i++) {
         const ans = localStorage.getItem(`READING_P3_Q${i}`) || "No answer";
         output += `Q${i}: ${ans}\n`;
     }
