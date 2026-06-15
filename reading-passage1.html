@@ -231,6 +231,14 @@ h2 {
     background: #0056b3;
 }
 
+.btn-export {
+    background: #28a745;
+}
+
+.btn-export:hover {
+    background: #1e7e34;
+}
+
 @media (max-width: 768px) {
     .content-wrapper {
         flex-direction: column;
@@ -352,7 +360,8 @@ h2 {
 
     <div class="nav-buttons">
         <a href="reading-intro.html" class="btn">Previous</a>
-        <button class="btn btn-submit" onclick="checkAnswers()">Submit Answers</button>
+        <button class="btn btn-submit" onclick="checkAnswers()">Check Answers</button>
+        <button class="btn btn-export" onclick="exportAllAnswers()">Save All Answers</button>
         <a href="reading-passage2.html" class="btn">Next</a>
     </div>
 </div>
@@ -373,7 +382,7 @@ document.getElementById('passageArea').addEventListener('mouseup', function() {
 });
 </script>
 
-<!-- Fixed Timer -->
+<!-- Timer -->
 <script>
 function updateTimer() {
     const totalTime = 60 * 60 * 1000;
@@ -422,12 +431,13 @@ textInputs.forEach(input => {
     });
 });
 
+// Saves answers with clear labeling
 function saveAllAnswers() {
     for (let i = 1; i <= 13; i++) {
         const radio = document.querySelector(`input[name="q${i}"]:checked`);
         const text = document.getElementById(`q${i}`);
-        if (radio) localStorage.setItem(`r1_q${i}`, radio.value);
-        if (text) localStorage.setItem(`r1_q${i}`, text.value.trim().toLowerCase());
+        if (radio) localStorage.setItem(`READING_P1_Q${i}`, radio.value);
+        if (text) localStorage.setItem(`READING_P1_Q${i}`, text.value.trim().toLowerCase());
     }
     saveNote.style.display = 'block';
     clearTimeout(window.saveTimer);
@@ -436,7 +446,7 @@ function saveAllAnswers() {
 
 function loadSavedAnswers() {
     for (let i = 1; i <= 13; i++) {
-        const val = localStorage.getItem(`r1_q${i}`);
+        const val = localStorage.getItem(`READING_P1_Q${i}`);
         if (!val) continue;
         const radio = document.querySelector(`input[name="q${i}"][value="${val.toUpperCase()}"]`);
         if (radio) radio.checked = true;
@@ -450,7 +460,7 @@ function loadSavedAnswers() {
 window.addEventListener('load', loadSavedAnswers);
 </script>
 
-<!-- Answer Checking - No Correct Answers Revealed -->
+<!-- Answer Checking -->
 <script>
 const correctAnswers = {
     1: "FALSE",
@@ -492,6 +502,43 @@ function checkAnswers() {
     document.getElementById('resultDetails').innerHTML = detailsHTML;
     document.getElementById('resultBox').style.display = 'block';
     document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth' });
+}
+
+<!-- Export All Answers Function -->
+function exportAllAnswers() {
+    let output = "=== IELTS TEST ANSWERS ===\n\n";
+
+    // --- LISTENING ANSWERS ---
+    output += "--- LISTENING SECTION ---\n";
+    for (let i = 1; i <= 40; i++) {
+        const ans = localStorage.getItem(`listening_part${Math.ceil(i/10)}_ans${i}`) || "No answer";
+        output += `Q${i}: ${ans}\n`;
+    }
+
+    // --- READING ANSWERS ---
+    output += "\n--- READING SECTION ---\n";
+    // Passage 1
+    output += "Passage 1:\n";
+    for (let i = 1; i <= 13; i++) {
+        const ans = localStorage.getItem(`READING_P1_Q${i}`) || "No answer";
+        output += `Q${i}: ${ans}\n`;
+    }
+    // We'll add Passage 2 & 3 here later when we make them
+
+    output += "\n--- WRITING SECTION ---\n(Will be added when completed)\n";
+
+    // Create downloadable file
+    const blob = new Blob([output], {type: 'text/plain'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `ielts_answers_${new Date().toISOString().slice(0,10)}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    alert("All answers saved! You can send this file for checking.");
 }
 </script>
 
