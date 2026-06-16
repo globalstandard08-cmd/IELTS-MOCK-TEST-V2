@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IELTS Writing - Task 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    padding: 15px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.logo {
+    text-align: center;
+    padding: 10px 0;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+
+.logo img {
+    height: 100px;
+    object-fit: contain;
+}
+
+.section-header {
+    background-color: #1f3a5f;
+    color: white;
+    padding: 12px 20px;
+    font-size: 17px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.timer-container {
+    background: #fff3cd;
+    color: #856404;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    height: calc(100vh - 260px);
+    min-height: 550px;
+}
+
+.column {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.column-left {
+    background: #fdfdfd;
+    flex: 0.8;
+}
+
+.column-right {
+    background: #ffffff;
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    color: #1f3a5f;
+    margin-bottom: 18px;
+    font-size: 19px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.instructions {
+    background-color: #f8fbfe;
+    border-left: 3px solid #1f3a5f;
+    padding: 15px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.diagram-container {
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    background: white;
+    border-radius: 4px;
+}
+
+.diagram-container img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+.answer-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#writingAnswer {
+    flex-grow: 1;
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    line-height: 1.7;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-family: Arial, sans-serif;
+}
+
+#writingAnswer:focus {
+    outline: none;
+    border-color: #1f3a5f;
+    box-shadow: 0 0 0 2px rgba(31, 58, 95, 0.1);
+}
+
+.status-bar {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.word-count {
+    color: #1f3a5f;
+    font-weight: 500;
+}
+
+.save-status {
+    color: #28a745;
+    display: none;
+}
+
+.nav-buttons {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #1f3a5f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #2e568c;
+}
+
+@media (max-width: 900px) {
+    .content-wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+    .column {
+        min-height: 350px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">
+        <img src="ielts-logo.png" alt="IELTS Logo">
+    </div>
+
+    <div class="section-header">
+        <span>WRITING | TASK 1</span>
+        <div class="timer-container">Time Remaining: <span id="timer">60:00</span></div>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- LEFT COLUMN: QUESTION & DIAGRAM -->
+        <div class="column column-left">
+            <h2>Writing Task 1</h2>
+            
+            <div class="instructions">
+                <p>You should spend about 20 minutes on this task.</p>
+                <br>
+                <p>The plans below show the site of Southwest Airport now and how it will look after redevelopment next year.</p>
+                <br>
+                <p>Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</p>
+                <br>
+                <p><strong>Write at least 150 words.</strong></p>
+            </div>
+
+            <div class="diagram-container">
+                <img src="southwest-airport-diagram.png" alt="Southwest Airport: Now and After Development">
+                <p style="margin-top: 10px; font-size: 13px; color: #666;">© IELTS Sample Material</p>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: ANSWER AREA -->
+        <div class="column column-right">
+            <h2>Your Answer</h2>
+            
+            <div class="answer-area">
+                <textarea id="writingAnswer" placeholder="Write your answer here..."></textarea>
+                
+                <div class="status-bar">
+                    <div class="word-count">Word count: <span id="wordCount">0</span></div>
+                    <div class="save-status" id="saveStatus">✓ Saved automatically</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="./writing-intro.html" class="btn">← Previous</a>
+        <a href="./writing-task2.html" class="btn">Next →</a>
+    </div>
+</div>
+
+<!-- TIMER: New 60-minute timer, separate from Reading -->
+<script>
+function initWritingTimer() {
+    const TOTAL_WRITING_TIME = 60 * 60 * 1000; // 60 minutes total
+    let writingStartTime = localStorage.getItem('writingStartTime');
+
+    // Start timer only once when first entering Writing section
+    if (!writingStartTime) {
+        writingStartTime = Date.now();
+        localStorage.setItem('writingStartTime', writingStartTime);
+    } else {
+        writingStartTime = parseInt(writingStartTime);
+    }
+
+    function updateTimer() {
+        const elapsed = Date.now() - writingStartTime;
+        const remaining = TOTAL_WRITING_TIME - elapsed;
+
+        if (remaining <= 0) {
+            document.getElementById('timer').textContent = "00:00";
+            if (!sessionStorage.getItem('writingTimeUpAlerted')) {
+                alert("Time is up! You can still review and save your work.");
+                sessionStorage.setItem('writingTimeUpAlerted', 'true');
+            }
+            return;
+        }
+
+        const minutes = Math.floor(remaining / 60000);
+        const seconds = Math.floor((remaining % 60000) / 1000);
+        document.getElementById('timer').textContent = 
+            `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+}
+
+window.addEventListener('load', initWritingTimer);
+</script>
+
+<!-- AUTO-SAVE & WORD COUNT -->
+<script>
+const answerBox = document.getElementById('writingAnswer');
+const wordCountEl = document.getElementById('wordCount');
+const saveStatusEl = document.getElementById('saveStatus');
+
+// Load saved work when page opens
+window.addEventListener('load', function() {
+    const saved = localStorage.getItem('writing_task1');
+    if (saved) {
+        answerBox.value = saved;
+        updateWordCount();
+    }
+});
+
+// Auto-save and update word count as typing
+answerBox.addEventListener('input', function() {
+    const text = this.value;
+    localStorage.setItem('writing_task1', text);
+    
+    // Update word count
+    updateWordCount();
+    
+    // Show save confirmation
+    saveStatusEl.style.display = 'inline';
+    clearTimeout(window.writingSaveTimer);
+    window.writingSaveTimer = setTimeout(() => {
+        saveStatusEl.style.display = 'none';
+    }, 1200);
+});
+
+function updateWordCount() {
+    const text = answerBox.value.trim();
+    if (!text) {
+        wordCountEl.textContent = '0';
+        return;
+    }
+    // Count words properly (handles multiple spaces/newlines)
+    const words = text.replace(/\s+/g, ' ').split(' ');
+    wordCountEl.textContent = words.length;
+}
+</script>
+
+<!-- EXPORT ALL WRITING ANSWERS -->
+<script>
+function exportWritingAnswers() {
+    let output = "=== IELTS WRITING ANSWERS ===\n\n";
+    
+    output += "--- TASK 1 ---\n";
+    output += localStorage.getItem('writing_task1') || "No answer written";
+    output += "\n\n--- TASK 2 ---\n";
+    output += localStorage.getItem('writing_task2') || "No answer written";
+
+    const blob = new Blob([output], {type: 'text/plain'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `ielts_writing_${new Date().toISOString().slice(0,10)}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>
