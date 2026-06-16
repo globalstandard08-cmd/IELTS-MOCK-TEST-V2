@@ -177,9 +177,16 @@ ul li {
 
     <div class="nav-buttons">
         <a href="./reading-passage3.html" class="btn">← Back to Reading</a>
-        <a href="./writing-task1.html" class="btn btn-next">Start Writing →</a>
+        <a href="./writing-task1.html" class="btn btn-next" onclick="resetWritingTimer()">Start Writing →</a>
     </div>
 </div>
+    <script>
+// Reset timer completely when user clicks "Start Writing"
+function resetWritingTimer() {
+    localStorage.removeItem('writingStartTime');
+    sessionStorage.removeItem('writingTimeUpAlerted');
+}
+</script>
 
 </body>
 </html>
