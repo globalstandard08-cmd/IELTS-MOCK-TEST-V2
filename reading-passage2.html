@@ -406,37 +406,44 @@ document.getElementById('passageArea').addEventListener('mouseup', function() {
 });
 </script>
 
-<!-- Timer -->
+<!-- Timer - Continuous 1 Hour -->
 <script>
-function updateTimer() {
-    const totalTime = 60 * 60 * 1000;
-    const startTime = localStorage.getItem('readingStartTime');
+function initTimer() {
+    const TOTAL_TEST_TIME = 60 * 60 * 1000; // 60 minutes total
+    let startTime = localStorage.getItem('readingStartTime');
 
+    // Set start time ONLY ONCE when test first starts
     if (!startTime) {
-        document.getElementById('timer').textContent = "60:00";
-        return;
+        startTime = Date.now();
+        localStorage.setItem('readingStartTime', startTime);
+    } else {
+        startTime = parseInt(startTime);
     }
 
-    const elapsed = Date.now() - parseInt(startTime);
-    const remaining = totalTime - elapsed;
+    function updateTimer() {
+        const elapsed = Date.now() - startTime;
+        const remaining = TOTAL_TEST_TIME - elapsed;
 
-    if (remaining <= 0) {
-        document.getElementById('timer').textContent = "00:00";
-        if (!sessionStorage.getItem('timeUpAlerted')) {
-            alert("Time is up! You can still review your answers and save them.");
-            sessionStorage.setItem('timeUpAlerted', 'true');
+        if (remaining <= 0) {
+            document.getElementById('timer').textContent = "00:00";
+            if (!sessionStorage.getItem('timeUpAlerted')) {
+                alert("Time is up! You can still review and save your answers.");
+                sessionStorage.setItem('timeUpAlerted', 'true');
+            }
+            return;
         }
-        return;
+
+        const minutes = Math.floor(remaining / 60000);
+        const seconds = Math.floor((remaining % 60000) / 1000);
+        document.getElementById('timer').textContent = 
+            `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
 
-    const minutes = Math.floor(remaining / 60000);
-    const seconds = Math.floor((remaining % 60000) / 1000);
-    document.getElementById('timer').textContent = 
-        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    updateTimer();
+    setInterval(updateTimer, 1000);
 }
 
-updateTimer();
-setInterval(updateTimer, 1000);
+window.addEventListener('load', initTimer);
 </script>
 
 <!-- Save & Load Answers -->
