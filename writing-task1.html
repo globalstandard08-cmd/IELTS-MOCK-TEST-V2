@@ -250,13 +250,13 @@ h2 {
     </div>
 </div>
 
-<!-- TIMER: New 60-minute timer, separate from Reading -->
+<!-- WRITING TIMER: 60 mins, fresh when Start Writing is clicked -->
 <script>
 function initWritingTimer() {
     const TOTAL_WRITING_TIME = 60 * 60 * 1000; // 60 minutes total
     let writingStartTime = localStorage.getItem('writingStartTime');
 
-    // Start timer only once when first entering Writing section
+    // Set start time only if it doesn't exist yet
     if (!writingStartTime) {
         writingStartTime = Date.now();
         localStorage.setItem('writingStartTime', writingStartTime);
