@@ -258,12 +258,13 @@ h2 {
     </div>
 </div>
 
-<!-- SAME CONTINUOUS WRITING TIMER -->
+<!-- WRITING TIMER: 60 mins, fresh when Start Writing is clicked -->
 <script>
 function initWritingTimer() {
-    const TOTAL_WRITING_TIME = 60 * 60 * 1000; // 60 minutes total for whole Writing section
+    const TOTAL_WRITING_TIME = 60 * 60 * 1000; // 60 minutes total
     let writingStartTime = localStorage.getItem('writingStartTime');
 
+    // Set start time only if it doesn't exist yet
     if (!writingStartTime) {
         writingStartTime = Date.now();
         localStorage.setItem('writingStartTime', writingStartTime);
