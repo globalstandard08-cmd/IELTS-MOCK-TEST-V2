@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IELTS Writing - Task 2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    padding: 15px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.logo {
+    text-align: center;
+    padding: 10px 0;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+
+.logo img {
+    height: 100px;
+    object-fit: contain;
+}
+
+.section-header {
+    background-color: #1f3a5f;
+    color: white;
+    padding: 12px 20px;
+    font-size: 17px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.timer-container {
+    background: #fff3cd;
+    color: #856404;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    height: calc(100vh - 260px);
+    min-height: 550px;
+}
+
+.column {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.column-left {
+    background: #fdfdfd;
+    flex: 0.9;
+}
+
+.column-right {
+    background: #ffffff;
+    flex: 1.1;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    color: #1f3a5f;
+    margin-bottom: 18px;
+    font-size: 19px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.instructions {
+    background-color: #f8fbfe;
+    border-left: 3px solid #1f3a5f;
+    padding: 18px;
+    margin-bottom: 20px;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.topic-text {
+    background: #ffffff;
+    padding: 18px;
+    border: 1px solid #d4e0ed;
+    border-radius: 4px;
+    line-height: 1.8;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.answer-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#writingAnswer {
+    flex-grow: 1;
+    width: 100%;
+    padding: 18px;
+    font-size: 16px;
+    line-height: 1.75;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-family: Arial, sans-serif;
+}
+
+#writingAnswer:focus {
+    outline: none;
+    border-color: #1f3a5f;
+    box-shadow: 0 0 0 2px rgba(31, 58, 95, 0.1);
+}
+
+.status-bar {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.word-count {
+    color: #1f3a5f;
+    font-weight: 500;
+}
+
+.save-status {
+    color: #28a745;
+    display: none;
+}
+
+.nav-buttons {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #1f3a5f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #2e568c;
+}
+
+.btn-export {
+    background: #28a745;
+}
+
+.btn-export:hover {
+    background: #1e7e34;
+}
+
+@media (max-width: 900px) {
+    .content-wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+    .column {
+        min-height: 350px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">
+        <img src="ielts-logo.png" alt="IELTS Logo">
+    </div>
+
+    <div class="section-header">
+        <span>WRITING | TASK 2</span>
+        <div class="timer-container">Time Remaining: <span id="timer">60:00</span></div>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- LEFT COLUMN: QUESTION -->
+        <div class="column column-left">
+            <h2>Writing Task 2</h2>
+            
+            <div class="instructions">
+                <p>You should spend about <strong>40 minutes</strong> on this task.</p>
+                <br>
+                <p>Write about the following topic:</p>
+            </div>
+
+            <div class="topic-text">
+                <strong>Many manufactured food and drink products contain high levels of sugar, which causes many health problems. Sugary products should be made more expensive to encourage people to consume less sugar.</strong>
+                <br><br>
+                Do you agree or disagree?
+                <br><br>
+                Give reasons for your answer and include any relevant examples from your own knowledge or experience.
+                <br><br>
+                <strong>Write at least 250 words.</strong>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: ANSWER AREA -->
+        <div class="column column-right">
+            <h2>Your Answer</h2>
+            
+            <div class="answer-area">
+                <textarea id="writingAnswer" placeholder="Write your essay here..."></textarea>
+                
+                <div class="status-bar">
+                    <div class="word-count">Word count: <span id="wordCount">0</span> (minimum 250)</div>
+                    <div class="save-status" id="saveStatus">✓ Saved automatically</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="./writing-task1.html" class="btn">← Previous</a>
+        <button class="btn btn-export" onclick="exportWritingAnswers()">Save/Export All Answers</button>
+        <a href="./end-test.html" class="btn">Finish Test →</a>
+    </div>
+</div>
+
+<!-- SAME CONTINUOUS WRITING TIMER -->
+<script>
+function initWritingTimer() {
+    const TOTAL_WRITING_TIME = 60 * 60 * 1000; // 60 minutes total for whole Writing section
+    let writingStartTime = localStorage.getItem('writingStartTime');
+
+    if (!writingStartTime) {
+        writingStartTime = Date.now();
+        localStorage.setItem('writingStartTime', writingStartTime);
+    } else {
+        writingStartTime = parseInt(writingStartTime);
+    }
+
+    function updateTimer() {
+        const elapsed = Date.now() - writingStartTime;
+        const remaining = TOTAL_WRITING_TIME - elapsed;
+
+        if (remaining <= 0) {
+            document.getElementById('timer').textContent = "00:00";
+            if (!sessionStorage.getItem('writingTimeUpAlerted')) {
+                alert("Time is up! You can still review and save your work.");
+                sessionStorage.setItem('writingTimeUpAlerted', 'true');
+            }
+            return;
+        }
+
+        const minutes = Math.floor(remaining / 60000);
+        const seconds = Math.floor((remaining % 60000) / 1000);
+        document.getElementById('timer').textContent = 
+            `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+}
+
+window.addEventListener('load', initWritingTimer);
+</script>
+
+<!-- AUTO-SAVE & WORD COUNT -->
+<script>
+const answerBox = document.getElementById('writingAnswer');
+const wordCountEl = document.getElementById('wordCount');
+const saveStatusEl = document.getElementById('saveStatus');
+
+// Load saved content
+window.addEventListener('load', function() {
+    const saved = localStorage.getItem('writing_task2');
+    if (saved) {
+        answerBox.value = saved;
+        updateWordCount();
+    }
+});
+
+// Auto-save and update count
+answerBox.addEventListener('input', function() {
+    const text = this.value;
+    localStorage.setItem('writing_task2', text);
+    updateWordCount();
+    
+    saveStatusEl.style.display = 'inline';
+    clearTimeout(window.writingSaveTimer);
+    window.writingSaveTimer = setTimeout(() => {
+        saveStatusEl.style.display = 'none';
+    }, 1200);
+});
+
+function updateWordCount() {
+    const text = answerBox.value.trim();
+    if (!text) {
+        wordCountEl.textContent = '0';
+        return;
+    }
+    const words = text.replace(/\s+/g, ' ').split(' ');
+    wordCountEl.textContent = words.length;
+}
+</script>
+
+<!-- EXPORT FUNCTION (same as Task 1) -->
+<script>
+function exportWritingAnswers() {
+    let output = "=== IELTS WRITING ANSWERS ===\n\n";
+    
+    output += "--- WRITING TASK 1 ---\n";
+    output += localStorage.getItem('writing_task1') || "No answer provided\n";
+    output += "\n\n--- WRITING TASK 2 ---\n";
+    output += localStorage.getItem('writing_task2') || "No answer provided\n";
+
+    const blob = new Blob([output], {type: 'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `ielts_writing_complete_${new Date().toISOString().slice(0,10)}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    alert("All Writing answers saved successfully!");
+}
+</script>
+
+</body>
+</html>
